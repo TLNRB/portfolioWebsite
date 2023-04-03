@@ -7,12 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import solid icons */
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 /* import brand icons */
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faReact, faVuejs } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
-library.add(fas, fab)
+library.add(faPlay, faLinkedin, faGithub, faReact, faVuejs)
 
 import './assets/main.css'
 
