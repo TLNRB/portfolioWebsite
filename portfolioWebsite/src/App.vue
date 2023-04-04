@@ -4,6 +4,7 @@
   <section class="home">
     <!-- Home Page Content -->
     <div class="container">
+      <!-- Title -->
       <div class="content-container">
         <img src="./images/best.JPG" alt="Picture of Norbert Tolnai" />
         <div class="title">
@@ -13,6 +14,16 @@
           <br />
           <h1 id="surname">Tolnai</h1>
         </div>
+      </div>
+      <!-- API Data and Social Links -->
+      <div class="api-data">
+        <p>DE</p>
+        <p>9°C</p>
+        <p>18:42 PM</p>
+      </div>
+      <div class="icons">
+        <font-awesome-icon :icon="['fab', 'linkedin']" />
+        <font-awesome-icon :icon="['fab', 'square-github']" />
       </div>
     </div>
 
@@ -29,6 +40,7 @@
 }
 
 .container {
+  position: relative;
   padding: 2rem;
   z-index: 5;
 }
@@ -114,6 +126,31 @@
   }
 }
 
+/* ----- API Data ----- */
+.api-data {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.api-data p {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ----- Icons ----- */
+.icons {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* ----- Responsive ----- */
 @media screen and (min-width: 360px) {
   .container .content-container {
@@ -166,6 +203,16 @@
   #surname {
     margin-top: -4.5rem;
   }
+
+  /* ----- API Data ----- */
+  .api-data p {
+    font-size: 0.875rem;
+  }
+
+  /* ----- Icons ----- */
+  .icons {
+    font-size: 1.75rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -215,6 +262,25 @@
     animation-delay: 8s;
     z-index: 2;
   }
+
+  /* ----- API Data ----- */
+  .api-data {
+    /* ----- Moving to the bottom by overwriting the top value ----- */
+    top: auto;
+    bottom: 44px;
+    transform: translateY(0%);
+
+    /* ----- Moving to the right by overwriting the left value ----- */
+    left: auto;
+    right: 44px;
+    transform: translateX(0%);
+  }
+
+  /* ----- Icons ----- */
+  .icons {
+    bottom: 44px;
+    left: 44px;
+  }
 }
 
 @media screen and (min-width: 1068px) {
@@ -255,6 +321,32 @@
   /* ----- Gradient Background ----- */
   .bg {
     margin: 1.5rem;
+  }
+
+  /* ----- API Data ----- */
+  .api-data {
+    gap: 1.25rem;
+    bottom: 56px;
+    right: 56px;
+  }
+
+  /* ----- Icons ----- */
+  .icons {
+    gap: 1.25rem;
+    bottom: 56px;
+    left: 56px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* ----- API Data ----- */
+  .api-data {
+    right: 100px;
+  }
+
+  /* ----- Icons ----- */
+  .icons {
+    left: 100px;
   }
 }
 </style>
