@@ -36,7 +36,7 @@
 .container .content-container {
   width: 215px;
   position: relative;
-  margin: 206px auto;
+  margin: 214px auto 214px auto;
 }
 
 .container .content-container img {
@@ -74,120 +74,6 @@
 #surname {
   margin-top: -2.75rem;
   text-align: center;
-}
-
-@media screen and (min-width: 360px) {
-  .container .content-container {
-    width: 295px;
-  }
-
-  .container .content-container img {
-    height: 235px;
-  }
-
-  .container h1 {
-    font-size: 3.75rem;
-  }
-
-  .container h1 span {
-    font-size: 3.75rem;
-  }
-
-  #firstname {
-    margin-top: -3.5rem;
-  }
-
-  #surname {
-    margin-top: -3.5rem;
-  }
-}
-
-@media screen and (min-width: 560px) {
-  .container .content-container {
-    width: 475px;
-  }
-
-  .container .content-container img {
-    height: 265px;
-  }
-
-  .container h1 {
-    font-size: 5rem;
-  }
-
-  .container h1 span {
-    font-size: 5rem;
-  }
-
-  #firstname {
-    margin-top: -4.5rem;
-  }
-
-  #surname {
-    margin-top: -4.5rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container .content-container {
-    width: 700px;
-  }
-
-  .container .content-container img {
-    height: 332px;
-  }
-
-  .container h1 {
-    font-size: 7.375rem;
-  }
-
-  .container h1 span {
-    font-size: 7.375rem;
-  }
-
-  #greet span {
-    z-index: -1;
-  }
-
-  #firstname {
-    margin-top: -6rem;
-  }
-
-  #surname {
-    margin-top: -6rem;
-  }
-}
-
-@media screen and (min-width: 1068px) {
-  .container .content-container {
-    width: 950px;
-  }
-
-  .container .content-container img {
-    height: 420px;
-  }
-
-  .container .content-container .title {
-    padding-top: 9.5rem;
-  }
-
-  .container h1 {
-    font-size: 10rem;
-    font-weight: 600;
-  }
-
-  .container h1 span {
-    font-size: 10rem;
-    font-weight: 600;
-  }
-
-  #firstname {
-    margin-top: -8rem;
-  }
-
-  #surname {
-    margin-top: -8rem;
-  }
 }
 
 /* ----- Gradient Background ----- */
@@ -228,7 +114,91 @@
   }
 }
 
+/* ----- Responsive ----- */
+@media screen and (min-width: 360px) {
+  .container .content-container {
+    width: 295px;
+  }
+
+  .container .content-container img {
+    height: 235px;
+  }
+
+  .container h1 {
+    font-size: 3.75rem;
+  }
+
+  .container h1 span {
+    font-size: 3.75rem;
+  }
+
+  #firstname {
+    margin-top: -3.5rem;
+  }
+
+  #surname {
+    margin-top: -3.5rem;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .container .content-container {
+    width: 475px;
+    margin: 224px auto 224px auto;
+  }
+
+  .container .content-container img {
+    height: 265px;
+  }
+
+  .container h1 {
+    font-size: 5rem;
+  }
+
+  .container h1 span {
+    font-size: 5rem;
+  }
+
+  #firstname {
+    margin-top: -4.5rem;
+  }
+
+  #surname {
+    margin-top: -4.5rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .container .content-container {
+    width: 700px;
+    margin: 200px auto 114px auto;
+  }
+
+  .container .content-container img {
+    height: 332px;
+  }
+
+  .container h1 {
+    font-size: 7.375rem;
+  }
+
+  .container h1 span {
+    font-size: 7.375rem;
+  }
+
+  #greet span {
+    z-index: -1;
+  }
+
+  #firstname {
+    margin-top: -6rem;
+  }
+
+  #surname {
+    margin-top: -6rem;
+  }
+
+  /* ----- Gradient Background ----- */
   .bg-1 {
     background-image: radial-gradient(at 67% 64%, var(--bgBlack) 0, transparent 49%),
       radial-gradient(at 95% 120%, var(--primaryColor) 0, transparent 30%);
@@ -244,6 +214,47 @@
     background-image: radial-gradient(at 5% 120%, var(--primaryColor) 0, transparent 30%);
     animation-delay: 8s;
     z-index: 2;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .container {
+    padding: 4rem;
+  }
+  .container .content-container {
+    width: 950px;
+    margin: 88px auto 0 auto;
+  }
+
+  .container .content-container img {
+    height: 420px;
+  }
+
+  .container .content-container .title {
+    padding-top: 9.5rem;
+  }
+
+  .container h1 {
+    font-size: 10rem;
+    font-weight: 600;
+  }
+
+  .container h1 span {
+    font-size: 10rem;
+    font-weight: 600;
+  }
+
+  #firstname {
+    margin-top: -8rem;
+  }
+
+  #surname {
+    margin-top: -8rem;
+  }
+
+  /* ----- Gradient Background ----- */
+  .bg {
+    margin: 1.5rem;
   }
 }
 </style>
