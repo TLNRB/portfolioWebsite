@@ -1,10 +1,11 @@
 :root {
-  --darkBG: #000000;
-  --normalBG: #101010;
-  --cardLowerBG: #202020;
+  --bgBlack: #000000;
+  --bgNormalBlack: #101010;
+  --bgLightBlack: #202020;
+  --bgTonedBlack: #00000066;
   --primaryColor: #6a48f2;
-  --baseText: #f4f0f0;
-  --lightText: #dddddd;
-  --normalText: #888888;
-  --darkText: #404040;
+  --textWhite: #f4f0f0;
+  --textLightGray: #dddddd;
+  --textNormalGray: #888888;
+  --textDarkGray: #404040;
 }
