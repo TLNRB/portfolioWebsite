@@ -9,7 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import solid icons */
 import { faCirclePlay, faDownload, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons'
 /* import brand icons */
-import { faLinkedin, faGithub, faJs, faVuejs, faSass } from '@fortawesome/free-brands-svg-icons'
+import {
+  faLinkedin,
+  faGithub,
+  faSquareGithub,
+  faJs,
+  faVuejs,
+  faSass
+} from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
 library.add(
@@ -19,6 +26,7 @@ library.add(
   faXmark,
   faLinkedin,
   faGithub,
+  faSquareGithub,
   faJs,
   faVuejs,
   faSass
