@@ -1,3 +1,10 @@
 :root {
-  --top-gradient-bgcolor: #151515;
+  --darkBG: #000000;
+  --normalBG: #101010;
+  --cardLowerBG: #202020;
+  --primaryColor: #6a48f2;
+  --baseText: #f4f0f0;
+  --lightText: #dddddd;
+  --normalText: #888888;
+  --darkText: #404040;
 }
