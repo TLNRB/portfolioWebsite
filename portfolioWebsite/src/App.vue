@@ -4,13 +4,15 @@
   <section class="home">
     <!-- Home Page Content -->
     <div class="container">
-      <!-- <img src="./images/best.JPG" alt="Picture of Norbert Tolnai" /> -->
-      <div class="title">
-        <h1 id="greet"><span>Hello,</span> I'm</h1>
-        <br />
-        <h1 id="firstname">Norbert</h1>
-        <br />
-        <h1 id="surname">Tolnai</h1>
+      <div class="content-container">
+        <img src="./images/best.JPG" alt="Picture of Norbert Tolnai" />
+        <div class="title">
+          <h1 id="greet"><span>Hello,</span> I'm</h1>
+          <br />
+          <h1 id="firstname">Norbert</h1>
+          <br />
+          <h1 id="surname">Tolnai</h1>
+        </div>
       </div>
     </div>
 
@@ -27,15 +29,30 @@
 }
 
 .container {
-  min-height: 100vh;
   padding: 2rem;
   z-index: 5;
 }
 
-.container .title {
+.container .content-container {
   width: 215px;
+  position: relative;
+  margin: 206px auto;
+}
+
+.container .content-container img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200px;
+  padding: 6px;
   margin: auto;
-  /* margin-top: 356px; */
+  border-radius: 15px;
+  border: 2px solid var(--primaryColor);
+  background-color: var(--bgBlack);
+}
+
+.container .content-container .title {
+  padding-top: 8rem;
 }
 
 .container h1 {
@@ -51,6 +68,7 @@
 #firstname {
   margin-top: -2.75rem;
   text-align: right;
+  z-index: -1;
 }
 
 #surname {
@@ -59,8 +77,12 @@
 }
 
 @media screen and (min-width: 360px) {
-  .container .title {
+  .container .content-container {
     width: 295px;
+  }
+
+  .container .content-container img {
+    height: 235px;
   }
 
   .container h1 {
@@ -81,8 +103,12 @@
 }
 
 @media screen and (min-width: 560px) {
-  .container .title {
+  .container .content-container {
     width: 475px;
+  }
+
+  .container .content-container img {
+    height: 265px;
   }
 
   .container h1 {
@@ -103,8 +129,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container .title {
+  .container .content-container {
     width: 700px;
+  }
+
+  .container .content-container img {
+    height: 332px;
   }
 
   .container h1 {
@@ -113,6 +143,10 @@
 
   .container h1 span {
     font-size: 7.375rem;
+  }
+
+  #greet span {
+    z-index: -1;
   }
 
   #firstname {
@@ -125,8 +159,16 @@
 }
 
 @media screen and (min-width: 1068px) {
-  .container .title {
+  .container .content-container {
     width: 950px;
+  }
+
+  .container .content-container img {
+    height: 420px;
+  }
+
+  .container .content-container .title {
+    padding-top: 9.5rem;
   }
 
   .container h1 {
@@ -150,7 +192,7 @@
 
 /* ----- Gradient Background ----- */
 .bg {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
