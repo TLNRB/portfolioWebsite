@@ -2,14 +2,19 @@
 
 <template>
   <section class="home">
+    <!-- Home Page Content -->
     <div class="container">
       <!-- <img src="./images/best.JPG" alt="Picture of Norbert Tolnai" /> -->
-      <h1 class="title">
-        Hello, I'm<br />
-        Norbert<br />
-        Tolnai
-      </h1>
+      <div class="title">
+        <h1 id="greet"><span>Hello,</span> I'm</h1>
+        <br />
+        <h1 id="firstname">Norbert</h1>
+        <br />
+        <h1 id="surname">Tolnai</h1>
+      </div>
     </div>
+
+    <!-- Gradient Background -->
     <div class="bg bg-1"></div>
     <div class="bg bg-2"></div>
     <div class="bg bg-3"></div>
@@ -23,9 +28,126 @@
 
 .container {
   min-height: 100vh;
-  padding: 0.75rem;
+  padding: 2rem;
   z-index: 5;
 }
+
+.container .title {
+  width: 215px;
+  margin: auto;
+  /* margin-top: 356px; */
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.container h1 span {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+#firstname {
+  margin-top: -2.75rem;
+  text-align: right;
+}
+
+#surname {
+  margin-top: -2.75rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 360px) {
+  .container .title {
+    width: 295px;
+  }
+
+  .container h1 {
+    font-size: 3.75rem;
+  }
+
+  .container h1 span {
+    font-size: 3.75rem;
+  }
+
+  #firstname {
+    margin-top: -3.5rem;
+  }
+
+  #surname {
+    margin-top: -3.5rem;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .container .title {
+    width: 475px;
+  }
+
+  .container h1 {
+    font-size: 5rem;
+  }
+
+  .container h1 span {
+    font-size: 5rem;
+  }
+
+  #firstname {
+    margin-top: -4.5rem;
+  }
+
+  #surname {
+    margin-top: -4.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container .title {
+    width: 700px;
+  }
+
+  .container h1 {
+    font-size: 7.375rem;
+  }
+
+  .container h1 span {
+    font-size: 7.375rem;
+  }
+
+  #firstname {
+    margin-top: -6rem;
+  }
+
+  #surname {
+    margin-top: -6rem;
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .container .title {
+    width: 950px;
+  }
+
+  .container h1 {
+    font-size: 10rem;
+    font-weight: 600;
+  }
+
+  .container h1 span {
+    font-size: 10rem;
+    font-weight: 600;
+  }
+
+  #firstname {
+    margin-top: -8rem;
+  }
+
+  #surname {
+    margin-top: -8rem;
+  }
+}
+
 /* ----- Gradient Background ----- */
 .bg {
   position: fixed;
