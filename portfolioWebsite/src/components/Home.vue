@@ -43,7 +43,7 @@ import { defineProps } from 'vue'
 
 .container {
   position: relative;
-  padding: 2rem;
+  padding: 1.5rem;
   z-index: 5;
 }
 
@@ -185,6 +185,9 @@ import { defineProps } from 'vue'
 }
 
 @media screen and (min-width: 560px) {
+  .contanier {
+    padding: 2rem;
+  }
   .container .content-container {
     width: 475px;
     margin: 224px auto 224px auto;

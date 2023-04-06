@@ -157,7 +157,7 @@
   }
 
   .about .content .btn-container {
-    margin-top: 2.5rem;
+    margin: 2.5rem 0;
   }
 }
 
@@ -183,7 +183,7 @@
   }
 
   .about .content .btn-container {
-    margin-top: 2.5rem;
+    margin-bottom: 4.875rem;
     gap: 1.5rem;
   }
 
@@ -199,6 +199,9 @@
 }
 
 @media screen and (max-width: 560px) {
+  .about {
+    padding: 2rem 1.5rem;
+  }
   .about .title {
     margin-left: -0.5rem;
   }
