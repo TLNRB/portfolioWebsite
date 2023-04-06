@@ -131,7 +131,7 @@ import { defineProps } from 'vue'
 /* ----- API Data ----- */
 .api-data {
   position: absolute;
-  top: 2rem;
+  top: 2.1rem;
   left: 2rem;
   display: flex;
   gap: 1rem;
@@ -151,6 +151,10 @@ import { defineProps } from 'vue'
   gap: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--primaryColor);
 }
 
 /* ----- Responsive ----- */
@@ -282,10 +286,6 @@ import { defineProps } from 'vue'
   .icons {
     bottom: 44px;
     left: 44px;
-  }
-
-  .icon:hover {
-    color: var(--primaryColor);
   }
 }
 
