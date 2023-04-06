@@ -105,6 +105,7 @@ nav::-webkit-scrollbar-thumb {
 }
 
 .menu li a:hover {
+  font-weight: 600;
   color: var(--primaryColor);
 }
 
