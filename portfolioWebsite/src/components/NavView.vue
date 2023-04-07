@@ -129,8 +129,9 @@ nav::-webkit-scrollbar-thumb {
     width: 100%;
     display: none;
     padding: 2.5rem 1.25rem;
+    background-color: rgba(200, 200, 200, 0.1);
     backdrop-filter: blur(12.5px);
-    background-color: transparent;
+    -webkit-backdrop-filter: blur(12.5px);
   }
 
   .menu li {

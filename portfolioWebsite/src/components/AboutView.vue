@@ -36,13 +36,13 @@
 }
 
 .about .title {
-  margin-top: 11.5rem;
+  margin-top: 11rem;
   width: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
-  gap: 12.75rem;
+  gap: 14rem;
 }
 
 .about .title h1 {
