@@ -214,6 +214,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.25rem;
+    margin-bottom: 2rem;
   }
 }
 
