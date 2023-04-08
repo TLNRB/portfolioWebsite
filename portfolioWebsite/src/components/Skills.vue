@@ -54,7 +54,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
-  gap: 10rem;
+  gap: 10.75rem;
 }
 
 .skills .title h1 {
