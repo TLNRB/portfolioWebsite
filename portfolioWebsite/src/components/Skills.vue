@@ -48,6 +48,7 @@
 
 .skills .title {
   margin-top: 8rem;
+  margin-left: -0.75rem;
   width: 210px;
   display: flex;
   justify-content: center;
@@ -65,6 +66,7 @@
   border-top: 7px solid var(--primaryColor);
   border-radius: 5px;
   line-height: 1;
+  letter-spacing: -5px;
 }
 
 .skills .title .section-name {
@@ -144,7 +146,7 @@
   .skills .title {
     transform: translateY(-3rem);
     margin-top: 0;
-    margin-left: -3.5rem;
+    margin-left: -3rem;
     width: 100%;
     justify-content: start;
     flex-direction: row;
@@ -214,6 +216,9 @@
     margin-left: -1.5rem;
   }
 
+  .skills .title .section-number {
+    letter-spacing: 0px;
+  }
   .skills .title h1 {
     font-size: 4rem;
   }
