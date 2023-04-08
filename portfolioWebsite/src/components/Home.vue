@@ -24,8 +24,8 @@ import { defineProps } from 'vue'
         <p>18:42 PM</p>
       </div>
       <div class="icons">
-        <font-awesome-icon class="icon" :icon="['fab', 'linkedin']" />
-        <font-awesome-icon class="icon" :icon="['fab', 'square-github']" />
+        <a href=""><font-awesome-icon :icon="['fab', 'linkedin']" /></a>
+        <a href=""><font-awesome-icon :icon="['fab', 'square-github']" /></a>
       </div>
     </div>
 
@@ -145,15 +145,18 @@ import { defineProps } from 'vue'
 /* ----- Icons ----- */
 .icons {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.25rem;
   left: 2rem;
   display: flex;
   gap: 1rem;
   font-size: 1.5rem;
-  cursor: pointer;
 }
 
-.icon:hover {
+.icons a {
+  color: var(--textWhite);
+}
+
+.icons a:hover {
   color: var(--primaryColor);
 }
 
@@ -287,7 +290,7 @@ import { defineProps } from 'vue'
 
   /* ----- Icons ----- */
   .icons {
-    bottom: 44px;
+    bottom: 32px;
     left: 44px;
   }
 }
@@ -335,15 +338,15 @@ import { defineProps } from 'vue'
   /* ----- API Data ----- */
   .api-data {
     gap: 1.25rem;
-    bottom: 56px;
-    right: 56px;
+    bottom: 64px;
+    right: 64px;
   }
 
   /* ----- Icons ----- */
   .icons {
     gap: 1.25rem;
-    bottom: 56px;
-    left: 56px;
+    bottom: 54px;
+    left: 64px;
   }
 }
 
