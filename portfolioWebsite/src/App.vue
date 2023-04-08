@@ -1,17 +1,17 @@
 <script setup>
-import HomeView from './components/HomeView.vue'
-import NavView from './components/NavView.vue'
-import AboutView from './components/AboutView.vue'
-import SkillsView from './components/SkillsView.vue'
-import FooterView from './components/FooterView.vue'
+import Home from './components/Home.vue'
+import Navbar from './components/Navbar.vue'
+import About from './components/About.vue'
+import Skills from './components/Skills.vue'
+import FooterSection from './components/FooterSection.vue'
 </script>
 
 <template>
-  <NavView />
-  <HomeView />
-  <AboutView />
-  <SkillsView />
-  <FooterView />
+  <Navbar />
+  <Home />
+  <About />
+  <Skills />
+  <FooterSection />
 </template>
 
 <style scoped></style>
