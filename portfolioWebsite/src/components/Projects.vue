@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import p from '../data/projects.json'
+import { ref } from 'vue'
+const projects = ref(p)
+</script>
 
 <template>
   <section class="projects">
@@ -24,46 +28,20 @@
         </div>
         <div class="card-container">
           <!-- Cards Go Here -->
-          <div class="card">
-            <img src="../images/ref.jpg" alt="" />
+          <div class="card" v-for="project in projects" :key="project.id">
+            <img :src="project.img" alt="" />
             <div class="lower-container">
               <div class="info">
-                <h3>Pasta Perfect</h3>
-                <h3>Website</h3>
+                <h3>{{ project.title }}</h3>
+                <h3>{{ project.category }}</h3>
               </div>
               <div class="links">
-                <a href=""><font-awesome-icon :icon="['fab', 'github']" /></a>
-                <a href=""><font-awesome-icon :icon="['fas', 'circle-play']" /></a>
-              </div>
-              <button><font-awesome-icon :icon="['fas', 'circle-info']" /></button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/ref.jpg" alt="" />
-            <div class="lower-container">
-              <div class="info">
-                <h3>Pasta Perfect</h3>
-                <h3>Website</h3>
-              </div>
-              <div class="links">
-                <a href=""><font-awesome-icon :icon="['fab', 'github']" /></a>
-                <a href=""><font-awesome-icon :icon="['fas', 'circle-play']" /></a>
-              </div>
-              <button><font-awesome-icon :icon="['fas', 'circle-info']" /></button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/ref.jpg" alt="" />
-            <div class="lower-container">
-              <div class="info">
-                <h3>Pasta Perfect</h3>
-                <h3>Website</h3>
-              </div>
-              <div class="links">
-                <a href=""><font-awesome-icon :icon="['fab', 'github']" /></a>
-                <a href=""><font-awesome-icon :icon="['fas', 'circle-play']" /></a>
+                <a :href="project.gitHub" target="_blank"
+                  ><font-awesome-icon :icon="['fab', 'github']"
+                /></a>
+                <a :href="project.liveServer" target="_blank"
+                  ><font-awesome-icon :icon="['fas', 'circle-play']"
+                /></a>
               </div>
               <button><font-awesome-icon :icon="['fas', 'circle-info']" /></button>
             </div>

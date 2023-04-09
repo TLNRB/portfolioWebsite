@@ -7,7 +7,7 @@
     "year": 2023,
     "framework": "vue",
     "built": ["JavaScript", "TailWind"],
-    "img": "../images/ref.jpg",
+    "img": "src/images/ref.jpg",
     "gitHub": "https://github.com/TLNRB/pastaRecepieWebsite",
     "liveServer": "https://www.google.com/"
   },
@@ -19,7 +19,7 @@
     "year": 2022,
     "framework": "other",
     "built": ["JavaScript"],
-    "img": "../images/ref.jpg",
+    "img": "src/images/ref.jpg",
     "gitHub": "https://github.com/TLNRB/web-dev_1st-semester_project",
     "liveServer": "https://www.google.com/"
   },
@@ -31,7 +31,7 @@
     "year": 2022,
     "framework": "other",
     "built": ["SCSS", "JavaScript"],
-    "img": "../images/ref.jpg",
+    "img": "src/images/ref.jpg",
     "gitHub": "https://github.com/HvadisVal/Semester-project",
     "liveServer": "https://www.google.com/"
   },
@@ -42,7 +42,7 @@
     "description": "In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.",
     "year": 2023,
     "built": ["Premier Pro"],
-    "img": "../images/ref.jpg",
+    "img": "src/images/bubbleBG.png",
     "gitHub": "https://github.com/TLNRB",
     "liveServer": "https://www.google.com/"
   },
@@ -53,7 +53,7 @@
     "description": "In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.",
     "year": 2022,
     "built": ["Premier Pro"],
-    "img": "../images/ref.jpg",
+    "img": "src/images/best.jpg",
     "gitHub": "https://github.com/TLNRB",
     "liveServer": "https://www.google.com/"
   }
