@@ -1,14 +1,13 @@
 <script setup>
 import { ref, defineProps } from 'vue'
 
+const { skillsImg, skillsImgMobile } = defineProps(['skillsImg', 'skillsImgMobile'])
 const isMobile = ref(false)
 
 // Add a listener to detect when the viewport width changes
 window.addEventListener('resize', () => {
   isMobile.value = window.innerWidth < 1068
 })
-
-const { skillsImg, skillsImgMobile } = defineProps(['skillsImg', 'skillsImgMobile'])
 </script>
 
 <template>
