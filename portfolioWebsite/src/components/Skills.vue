@@ -1,7 +1,21 @@
-<script setup></script>
+<script setup>
+import { ref, defineProps } from 'vue'
+
+const isMobile = ref(false)
+
+// Add a listener to detect when the viewport width changes
+window.addEventListener('resize', () => {
+  isMobile.value = window.innerWidth < 1068
+})
+
+const { skillsImg, skillsImgMobile } = defineProps(['skillsImg', 'skillsImgMobile'])
+</script>
 
 <template>
-  <section class="skills">
+  <section
+    class="skills"
+    :style="{ backgroundImage: 'url(' + (isMobile ? skillsImgMobile : skillsImg) + ')' }"
+  >
     <div class="container">
       <div class="title">
         <h1 class="section-number">03</h1>
@@ -27,7 +41,6 @@
 <style scoped>
 .skills {
   background-color: var(--bgBlack);
-  background-image: url('../images/bubbleBG.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -130,7 +143,6 @@
 
 @media screen and (max-width: 1068px) {
   .skills {
-    background-image: url('../images/bubbleBGMobileRotated.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

@@ -9,10 +9,13 @@ import FooterSection from './components/FooterSection.vue'
 
 <template>
   <Navbar />
-  <Home />
+  <Home :homeImg="'src/images/best.jpg'" />
   <About />
   <Projects />
-  <Skills />
+  <Skills
+    :skillsImg="'src/images/bubbleBG.png'"
+    :skillsImgMobile="'src/images/bubbleBGMobile.png'"
+  />
   <FooterSection />
 </template>
 

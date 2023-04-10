@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue'
+
+const { homeImg } = defineProps(['homeImg'])
+</script>
 
 <template>
   <section class="home">
@@ -6,7 +10,7 @@
     <div class="container">
       <!-- Title -->
       <div class="content-container">
-        <img src="../images/best.JPG" alt="Picture of Norbert Tolnai" />
+        <img :src="homeImg" alt="Picture of Norbert Tolnai" />
         <div class="title">
           <h1 id="greet"><span>Hello,</span> I'm</h1>
           <br />
