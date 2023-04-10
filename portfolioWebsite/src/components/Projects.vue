@@ -1,6 +1,8 @@
 <script setup>
 import p from '../data/projects.json'
 import { ref } from 'vue'
+
+import Card from '../components/projects/Card.vue'
 const projects = ref(p)
 </script>
 
@@ -28,7 +30,8 @@ const projects = ref(p)
         </div>
         <div class="card-container">
           <!-- Cards Go Here -->
-          <div class="card" v-for="project in projects" :key="project.id">
+          <Card v-for="project in projects" :key="project.id" :project="project" />
+          <!-- <div class="card" v-for="project in projects" :key="project.id">
             <img :src="project.img" alt="" />
             <div class="lower-container">
               <div class="info">
@@ -45,7 +48,7 @@ const projects = ref(p)
               </div>
               <button><font-awesome-icon :icon="['fas', 'circle-info']" /></button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
