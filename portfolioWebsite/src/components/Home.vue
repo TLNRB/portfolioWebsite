@@ -5,7 +5,7 @@ const { homeImg } = defineProps(['homeImg'])
 </script>
 
 <template>
-  <section class="home">
+  <section id="home" class="home">
     <!-- Home Page Content -->
     <div class="container">
       <!-- Title -->

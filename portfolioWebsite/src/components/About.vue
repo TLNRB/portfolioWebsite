@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <section class="about">
+  <section id="about" class="about">
     <div class="title">
       <h1 class="section-number">01</h1>
       <h1 class="section-name">About.</h1>

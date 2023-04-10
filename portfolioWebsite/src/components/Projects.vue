@@ -7,7 +7,7 @@ const projects = ref(p)
 </script>
 
 <template>
-  <section class="projects">
+  <section id="projects" class="projects">
     <div class="container">
       <!-- Title -->
       <div class="title">

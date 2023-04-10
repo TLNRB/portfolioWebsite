@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, defineProps, defineEmits } from 'vue'
 
 /* ----- Nav and dropdown click event ----- */
 const isMenuOpen = ref(false)
@@ -18,11 +18,17 @@ function handleResize() {
 onMounted(() => {
   window.addEventListener('resize', handleResize)
 })
-
 // Remove resize event listener when component is mounted
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
 })
+
+//Navbar link click
+const { sections } = defineProps(['sections'])
+const emit = defineEmits(['select-section'])
+const handleSelectSection = (id) => {
+  emit('select-section', id)
+}
 </script>
 
 <template>
@@ -34,22 +40,25 @@ onUnmounted(() => {
         <span class="menu-icon__line menu-icon__line-right"></span>
       </div>
       <ul class="menu" :class="{ 'is-open': isMenuOpen && screenWidth <= 768 }">
-        <li>
-          <a href=""><span>00</span>Home.</a>
-        </li>
-        <li>
-          <a href=""><span>01</span>About.</a>
-        </li>
-        <li>
-          <a href=""><span>02</span>Projects.</a>
-        </li>
-        <li>
-          <a href=""><span>03</span>Skills.</a>
-        </li>
-        <li>
-          <a href=""><span>04</span>Contact.</a>
+        <li
+          v-for="section in sections"
+          :key="section.id"
+          @click="handleSelectSection(section.id, section.active)"
+          :class="[section.active ? 'active' : '']"
+        >
+          <span>{{ section.number }}</span
+          ><span>{{ section.title }}</span>
         </li>
       </ul>
+
+      <!-- <ul class="menu" :class="{ 'is-open': isMenuOpen && screenWidth <= 768 }">
+        <li @link-click="scrollToSection(0)"><span>00</span>Home.</li>
+
+        <li @link-click="scrollToSection(1)"><span>01</span>About.</li>
+        <li @link-click="scrollToSection(2)"><span>02</span>Projects.</li>
+        <li @link-click="scrollToSection(3)"><span>03</span>Skills.</li>
+        <li @link-click="scrollToSection(4)"><span>04</span>Contact.</li>
+      </ul> -->
     </nav>
   </header>
 </template>
@@ -97,20 +106,37 @@ nav::-webkit-scrollbar-thumb {
   display: block;
 }
 
-.menu li a {
+.menu li {
   font-size: 1rem;
   font-weight: 600;
   color: var(--textWhite);
   cursor: pointer;
 }
 
-.menu li a:hover {
-  font-weight: 600;
-  color: var(--primaryColor);
+.menu li span {
+  padding-bottom: 2px;
 }
 
-.menu li a span {
+.menu li span:first-child {
   display: none;
+}
+
+.menu li span:last-child {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+.menu .active span:last-child {
+  border-bottom: 2px solid var(--textWhite);
+}
+
+.menu .active span:last-child:hover {
+  border-bottom: 2px solid var(--primaryColor);
+}
+
+.menu li:hover {
+  font-weight: 600;
+  color: var(--primaryColor);
 }
 
 @media screen and (max-width: 768px) {
@@ -134,15 +160,35 @@ nav::-webkit-scrollbar-thumb {
     -webkit-backdrop-filter: blur(12.5px);
   }
 
+  .menu li span:first-child {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0.125rem;
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .menu .active span:last-child {
+    border-bottom: 2px solid var(--textWhite);
+  }
+
+  .menu .active span:last-child:hover {
+    border-bottom: 2px solid var(--primaryColor);
+  }
+
   .menu li {
     margin-bottom: 1.5rem;
+    width: fit-content;
   }
 
   .menu li:last-child {
     margin-bottom: 0;
   }
 
-  .menu li a {
+  .menu li {
     padding-left: 2.125rem;
     color: var(--textWhite);
     font-size: 2.5rem;
@@ -150,22 +196,12 @@ nav::-webkit-scrollbar-thumb {
     border-bottom: 3px solid transparent;
   }
 
-  .menu li a:hover {
+  .menu li:hover {
     color: var(--textWhite);
   }
 
-  .menu li a:hover span {
+  .menu li:hover span:first-child {
     color: var(--primaryColor);
-  }
-
-  .menu li a span {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-right: 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 500;
   }
 
   /* ----- Menu Icon ----- */

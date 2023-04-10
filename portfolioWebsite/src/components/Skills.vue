@@ -12,6 +12,7 @@ window.addEventListener('resize', () => {
 
 <template>
   <section
+    id="skills"
     class="skills"
     :style="{ backgroundImage: 'url(' + (isMobile ? skillsImgMobile : skillsImg) + ')' }"
   >

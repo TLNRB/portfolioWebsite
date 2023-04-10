@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <footer>
+  <footer id="contact">
     <div class="version">
       <p>Version</p>
       <p>2023 &copy; Norbert Tolnai</p>
