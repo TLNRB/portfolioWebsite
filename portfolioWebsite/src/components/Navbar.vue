@@ -50,15 +50,6 @@ const handleSelectSection = (id) => {
           ><span>{{ section.title }}</span>
         </li>
       </ul>
-
-      <!-- <ul class="menu" :class="{ 'is-open': isMenuOpen && screenWidth <= 768 }">
-        <li @link-click="scrollToSection(0)"><span>00</span>Home.</li>
-
-        <li @link-click="scrollToSection(1)"><span>01</span>About.</li>
-        <li @link-click="scrollToSection(2)"><span>02</span>Projects.</li>
-        <li @link-click="scrollToSection(3)"><span>03</span>Skills.</li>
-        <li @link-click="scrollToSection(4)"><span>04</span>Contact.</li>
-      </ul> -->
     </nav>
   </header>
 </template>
