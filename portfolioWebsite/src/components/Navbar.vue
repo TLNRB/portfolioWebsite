@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, defineProps, defineEmits } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 /* ----- Nav and dropdown click event ----- */
 const isMenuOpen = ref(false)

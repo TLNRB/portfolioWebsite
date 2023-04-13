@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 
 const { skillsImg, skillsImgMobile } = defineProps(['skillsImg', 'skillsImgMobile'])
 const isMobile = ref(false)
