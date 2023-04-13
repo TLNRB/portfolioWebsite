@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import profilePic from '../assets/images/best.jpg'
+import bubbleWeb from '../assets/images/bubbleBG.png'
+import bubbleMobile from '../assets/images/bubbleBGMobile.png'
 
 import Home from '../components/Home.vue'
 import Navbar from '../components/Navbar.vue'
@@ -85,14 +88,10 @@ onUnmounted(() => {
 
 <template>
   <Navbar :sections="sections" @select-section="handleSelectSection" />
-  <Home id="home" :homeImg="'src/images/best.jpg'" />
+  <Home id="home" :homeImg="profilePic" />
   <About id="about" />
   <Projects id="projects" />
-  <Skills
-    id="skills"
-    :skillsImg="'src/images/bubbleBG.png'"
-    :skillsImgMobile="'src/images/bubbleBGMobile.png'"
-  />
+  <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" />
   <FooterSection id="contact" />
 </template>
 

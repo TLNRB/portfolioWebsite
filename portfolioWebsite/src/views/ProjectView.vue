@@ -30,7 +30,7 @@
       </p>
     </div>
     <div class="lower-container">
-      <img src="../images/ref.jpg" alt="" />
+      <img src="../assets/images/ref.jpg" alt="" />
     </div>
     <div class="button-container">
       <a href="">GitHub</a>
