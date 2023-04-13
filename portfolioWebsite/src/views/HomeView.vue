@@ -17,7 +17,7 @@ const sections = ref([
   { id: 'contact', number: '04', title: 'Contact.', active: false }
 ])
 
-//Handle navbar navigation
+//Handle navbar navigation on clicking
 const handleSelectSection = (id) => {
   const section = document.getElementById(id)
   section.scrollIntoView({ behavior: 'smooth' })
@@ -85,16 +85,15 @@ onUnmounted(() => {
 
 <template>
   <Navbar :sections="sections" @select-section="handleSelectSection" />
-  <Home id="home" :index="0" :homeImg="'src/images/best.jpg'" />
-  <About id="about" :index="1" />
-  <Projects id="projects" :index="2" />
+  <Home id="home" :homeImg="'src/images/best.jpg'" />
+  <About id="about" />
+  <Projects id="projects" />
   <Skills
     id="skills"
-    :index="3"
     :skillsImg="'src/images/bubbleBG.png'"
     :skillsImgMobile="'src/images/bubbleBGMobile.png'"
   />
-  <FooterSection id="contact" :index="4" />
+  <FooterSection id="contact" />
 </template>
 
 <style scoped></style>
