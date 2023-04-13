@@ -1,7 +1,11 @@
 <script setup></script>
 
 <template>
-  <div></div>
+  <section class="project"></section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.project {
+  background-color: var(--bgBlack);
+}
+</style>
