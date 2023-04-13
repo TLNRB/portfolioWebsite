@@ -76,13 +76,15 @@
 
 .project .upper-container .info-container .info p {
   padding-top: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .project .upper-container .info-container .info div {
-  padding-top: 1.25rem;
+  padding-top: 1.125rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  font-size: 1.25rem;
 }
 
 .project .upper-container .info-container .info div p {
@@ -155,5 +157,167 @@
 
 .project #back:hover {
   transform: translateY(-5px);
+}
+
+/* Responsive */
+@media screen and (max-width: 1400px) {
+  .project {
+    padding: 6.25rem 6.25rem 3.75rem 6.25rem;
+  }
+  .project .upper-container h1 {
+    font-size: 6.25rem;
+  }
+
+  .project .button-container {
+    bottom: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .project {
+    padding: 6.25rem 3.75rem 3.75rem 3.75rem;
+  }
+  .project .upper-container h1 {
+    font-size: 5rem;
+  }
+  .project .upper-container .info-container {
+    margin: 3.75rem 0 6.25rem 0;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project .upper-container .info-container .info {
+    width: 500px;
+  }
+
+  .project .upper-container .info-container .info h3 {
+    padding-bottom: 0.75rem;
+  }
+
+  .project .upper-container .info-container .info p {
+    padding-top: 0.75rem;
+  }
+
+  .project .upper-container .info-container .info div {
+    padding-top: 0.75rem;
+    gap: 0.125rem;
+  }
+
+  .project .upper-container .description {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    padding: 6.25rem 2rem 3.75rem 2rem;
+  }
+  .project .upper-container h1 {
+    font-size: 3.5rem;
+  }
+
+  .project .upper-container .info-container {
+    margin-bottom: 3.75rem;
+  }
+  .project .upper-container .info-container .info {
+    width: 250px;
+  }
+
+  .project .upper-container .info-container .info h3 {
+    padding-bottom: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .project .upper-container .info-container .info p {
+    padding-top: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .project .upper-container .info-container .info div {
+    font-size: 1rem;
+  }
+
+  .project .upper-container .description {
+    margin-bottom: 3.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .project .lower-container img {
+    border-radius: 25px;
+  }
+
+  .project .button-container {
+    bottom: 2rem;
+  }
+
+  .project #back {
+    width: 35px;
+    height: 35px;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .project #back .icon {
+    transform: translateY(0.5px) translateX(0.5px);
+  }
+
+  .project .button-container {
+    bottom: 2rem;
+  }
+
+  .project .button-container a {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .project {
+    padding: 5rem 1.25rem 3.75rem 1.25rem;
+  }
+  .project .upper-container h1 {
+    font-size: 3rem;
+  }
+  .project .upper-container .info-container .info {
+    width: 100%;
+  }
+
+  .project .lower-container img {
+    border-radius: 20px;
+  }
+
+  .project #back {
+    top: 2rem;
+    right: 1.25rem;
+  }
+
+  .project .button-container {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .project {
+    padding: 5rem 1.25rem 3.75rem 1.25rem;
+  }
+  .project .upper-container h1 {
+    font-size: 2.125rem;
+  }
+
+  .project .lower-container img {
+    border-radius: 15px;
+  }
+
+  .project #back {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .project .button-container {
+    bottom: 1.25rem;
+  }
 }
 </style>
