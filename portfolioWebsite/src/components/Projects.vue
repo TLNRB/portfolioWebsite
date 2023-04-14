@@ -1,11 +1,43 @@
 <script setup>
+import { ref, computed } from 'vue'
+
+import Card from '../components/projects/Card.vue'
 /* import allProjects from '../data/projects.json' */
 /* JSON file in javascript to be able to display images after building the website */
 import allProjects from '../data/projects.js'
-import { ref } from 'vue'
 
-import Card from '../components/projects/Card.vue'
 const projects = ref(allProjects)
+
+/* Setting the correct button to active */
+const activeButton = ref('all')
+
+const displayAll = () => {
+  activeButton.value = 'all'
+}
+const displayWebsite = () => {
+  activeButton.value = 'website'
+}
+const displayVideo = () => {
+  activeButton.value = 'video'
+}
+
+/* Filtering the projects */
+let filteredProjects = computed(() => {
+  switch (activeButton.value) {
+    case 'all':
+      return projects.value
+      break
+    case 'website':
+      return projects.value.filter((project) => project.category.toLowerCase() === 'website')
+      break
+    case 'video':
+      return projects.value.filter((project) => project.category.toLowerCase() === 'video')
+      break
+
+    default:
+      break
+  }
+})
 </script>
 
 <template>
@@ -25,14 +57,20 @@ const projects = ref(allProjects)
             choose the right one from our library of blocks and see the magic unfold.
           </p>
           <div class="filter-btn-container">
-            <button class="btn-active">All</button>
-            <button>Website</button>
-            <button>Video</button>
+            <button @click="displayAll" :class="{ 'btn-active': activeButton === 'all' }">
+              All
+            </button>
+            <button @click="displayWebsite" :class="{ 'btn-active': activeButton === 'website' }">
+              Website
+            </button>
+            <button @click="displayVideo" :class="{ 'btn-active': activeButton === 'video' }">
+              Video
+            </button>
           </div>
         </div>
         <div class="card-container">
           <!-- Cards Go Here -->
-          <Card v-for="project in projects" :key="project.id" :project="project" />
+          <Card v-for="project in filteredProjects" :key="project.id" :project="project" />
         </div>
       </div>
     </div>
