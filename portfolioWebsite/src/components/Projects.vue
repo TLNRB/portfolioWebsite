@@ -1,5 +1,8 @@
 <script setup>
 import p from '../data/projects.json'
+
+/* JSON file in javascript to be able to display images after building the website */
+/* import p from '../data/projects.js' */
 import { ref } from 'vue'
 
 import Card from '../components/projects/Card.vue'
