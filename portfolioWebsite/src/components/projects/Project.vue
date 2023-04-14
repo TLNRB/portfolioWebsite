@@ -160,7 +160,7 @@ function goBack() {
 
 .project #back .icon {
   margin: 50% 0 0 50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-48%) translateX(-52%);
 }
 
 .project #back:hover {
@@ -265,6 +265,10 @@ function goBack() {
     top: 2rem;
     right: 2rem;
     font-size: 1.25rem;
+  }
+
+  .project #back .icon {
+    transform: translateY(-48%) translateX(-56%);
   }
 
   .project .button-container {
