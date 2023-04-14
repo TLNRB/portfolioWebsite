@@ -1,44 +1,44 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router'
+const { project } = defineProps(['project'])
+</script>
 
 <template>
   <section class="project">
     <!-- Project goes here -->
     <div class="upper-container">
-      <h1>Pasta Perfect</h1>
+      <h1>{{ project.title }}</h1>
       <div class="info-container">
         <!-- Informations goes here -->
         <div class="info">
           <h3>Role</h3>
-          <p>Recepie Website</p>
+          <p>{{ project.role }}</p>
         </div>
         <div class="info">
           <h3>Year</h3>
-          <p>2023</p>
+          <p>{{ project.year }}</p>
         </div>
         <div class="info">
           <h3>Built with</h3>
           <div>
-            <p>TailWind</p>
-            <p>JavaScript</p>
+            <p v-for="item in project.built">{{ item }}</p>
           </div>
         </div>
       </div>
       <p class="description">
-        In Chronicle everything is made with Blocks that come with pixel perfect design,
-        interactivity and motion out of the box. Instead of designing from scratch, simply choose
-        the right one from our library of blocks and see the magic unfold.
+        {{ project.description }}
       </p>
     </div>
     <div class="lower-container">
-      <img src="../assets/images/ref.jpg" alt="" />
+      <img :src="project.img" alt="Project Image" />
     </div>
     <div class="button-container">
-      <a href="">GitHub</a>
-      <a href="">View Site</a>
+      <a :href="project.gitHub" target="_blank">GitHub</a>
+      <a :href="project.liveServer" target="_blank">View Site</a>
     </div>
-    <button id="back">
+    <RouterLink to="/" id="back">
       <font-awesome-icon class="icon" :icon="['fas', 'xmark']" />
-    </button>
+    </RouterLink>
   </section>
 </template>
 
@@ -152,7 +152,8 @@
 }
 
 .project #back .icon {
-  transform: translateY(1px) translateX(1px);
+  margin: 50% 0 0 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
 
 .project #back:hover {
@@ -257,10 +258,6 @@
     top: 2rem;
     right: 2rem;
     font-size: 1.25rem;
-  }
-
-  .project #back .icon {
-    transform: translateY(0.5px) translateX(0.5px);
   }
 
   .project .button-container {

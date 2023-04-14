@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+
 const { project } = defineProps(['project'])
 </script>
 
@@ -18,7 +20,9 @@ const { project } = defineProps(['project'])
           ><font-awesome-icon :icon="['fas', 'circle-play']"
         /></a>
       </div>
-      <button><font-awesome-icon :icon="['fas', 'circle-info']" /></button>
+      <RouterLink class="more-btn" :to="`/project-${project.id}`"
+        ><font-awesome-icon :icon="['fas', 'circle-info']"
+      /></RouterLink>
     </div>
   </div>
 </template>
@@ -75,7 +79,7 @@ const { project } = defineProps(['project'])
   color: var(--primaryColor);
 }
 
-.projects .container .inner-container .card-container .card .lower-container button {
+.projects .container .inner-container .card-container .card .lower-container .more-btn {
   background-color: transparent;
   border: none;
   font-size: 1.75rem;
@@ -83,7 +87,7 @@ const { project } = defineProps(['project'])
   cursor: pointer;
 }
 
-.projects .container .inner-container .card-container .card .lower-container button:hover {
+.projects .container .inner-container .card-container .card .lower-container .more-btn:hover {
   color: var(--primaryColor);
 }
 
@@ -124,7 +128,7 @@ const { project } = defineProps(['project'])
     color: var(--primaryColor);
   }
 
-  .projects .container .inner-container .card-container .card .lower-container button {
+  .projects .container .inner-container .card-container .card .lower-container .more-btn {
     font-size: 1.375rem;
   }
 }
@@ -163,7 +167,7 @@ const { project } = defineProps(['project'])
     color: var(--primaryColor);
   }
 
-  .projects .container .inner-container .card-container .card .lower-container button {
+  .projects .container .inner-container .card-container .card .lower-container .more-btn {
     font-size: 1.25rem;
   }
 }
