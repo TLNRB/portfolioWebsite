@@ -81,7 +81,6 @@
 }
 
 .about .content .btn-container a {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,6 +92,7 @@
   border-radius: 60em;
   font-size: 1rem;
 
+  position: relative;
   overflow: hidden;
   z-index: 1;
   transition: all 0.3s linear;
@@ -111,7 +111,7 @@
   box-sizing: border-box;
   background-color: var(--bgBlack);
   transform: translateY(0) rotate(0deg);
-  transition: all 1s linear;
+  transition: all 1.5s linear;
   z-index: -1;
 }
 .about .content .btn-container a:hover::after {
