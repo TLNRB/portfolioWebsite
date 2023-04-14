@@ -136,22 +136,47 @@ let filteredProjects = computed(() => {
 .projects .container .inner-container .text-container .filter-btn-container button {
   font-family: 'Red Hat Display', sans-serif;
   padding: 0.813rem 1.5rem 0.75rem 1.5rem;
-  background-color: transparent;
+  background-color: var(--primaryColor);
   border: 1px solid var(--textLightGray);
   color: var(--textLightGray);
   border-radius: 60em;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s linear;
+}
+.projects .container .inner-container .text-container .filter-btn-container button:hover {
+  border: 1px solid var(--primaryColor);
+}
+.projects .container .inner-container .text-container .filter-btn-container button::after {
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  left: -25px;
+  height: 260px;
+  width: 230px;
+  border-radius: 38%;
+  box-sizing: border-box;
+  background-color: var(--bgBlack);
+  transform: translateY(0) rotate(0deg);
+  transition: all 1.5s linear;
+  z-index: -1;
+}
+.projects .container .inner-container .text-container .filter-btn-container button:hover::after {
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .projects .container .inner-container .text-container .filter-btn-container .btn-active {
-  background-color: var(--primaryColor);
+  background-color: var(--bgBlack);
   border: 1px solid var(--primaryColor);
 }
 
-.projects .container .inner-container .text-container .filter-btn-container button:hover {
-  border: 1px solid var(--primaryColor);
+.projects .container .inner-container .text-container .filter-btn-container .btn-active::after {
+  background-color: var(--primaryColor);
 }
 
 /* ----- Card Container -----*/
