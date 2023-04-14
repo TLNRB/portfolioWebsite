@@ -81,19 +81,41 @@
 }
 
 .about .content .btn-container a {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--textLightGray);
+  background-color: var(--primaryColor);
   color: var(--textLightGray);
   border-radius: 60em;
   font-size: 1rem;
-}
 
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s linear;
+}
 .about .content .btn-container a:hover {
   border: 1px solid var(--primaryColor);
+}
+.about .content .btn-container a::after {
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  left: -25px;
+  height: 260px;
+  width: 230px;
+  border-radius: 38%;
+  box-sizing: border-box;
+  background-color: var(--bgBlack);
+  transform: translateY(0) rotate(0deg);
+  transition: all 1s linear;
+  z-index: -1;
+}
+.about .content .btn-container a:hover::after {
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .about .content .btn-container a span {
