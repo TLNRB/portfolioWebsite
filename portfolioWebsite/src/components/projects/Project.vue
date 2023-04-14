@@ -1,6 +1,13 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useRouter } from 'vue-router'
 const { project } = defineProps(['project'])
+
+//Goes back to previous page same position
+const router = useRouter()
+
+function goBack() {
+  router.go(-1)
+}
 </script>
 
 <template>
@@ -36,9 +43,9 @@ const { project } = defineProps(['project'])
       <a :href="project.gitHub" target="_blank">GitHub</a>
       <a :href="project.liveServer" target="_blank">View Site</a>
     </div>
-    <RouterLink to="/" id="back">
+    <button @click="goBack" id="back">
       <font-awesome-icon class="icon" :icon="['fas', 'xmark']" />
-    </RouterLink>
+    </button>
   </section>
 </template>
 

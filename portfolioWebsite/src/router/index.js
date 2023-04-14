@@ -15,7 +15,16 @@ const router = createRouter({
       name: 'project',
       component: ProjectView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.path.startsWith('/project-')) {
+      // Scroll to top of target page
+      return { top: 0 }
+    } else {
+      // Use default behavior
+      return savedPosition
+    }
+  }
 })
 
 export default router
