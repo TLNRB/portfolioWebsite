@@ -130,16 +130,35 @@ function goBack() {
 
 .project .button-container a {
   padding: 0.75rem 1.5rem;
-  background-color: var(--primaryColor);
+  background-color: var(--bgBlack);
   font-size: 1rem;
   font-weight: 600;
   color: var(--textLightGray);
+  border: 1px solid var(--primaryColor);
   border-radius: 60em;
-  transition: all 0.25s ease-in-out;
-}
 
-.project .button-container a:hover {
-  transform: translateY(-5px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s linear;
+}
+.project .button-container a::after {
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  left: -25px;
+  height: 260px;
+  width: 230px;
+  border-radius: 38%;
+  box-sizing: border-box;
+  background-color: var(--primaryColor);
+  transform: translateY(0) rotate(0deg);
+  transition: all 0.3s linear;
+  transition: transform 1.5s linear;
+  z-index: -1;
+}
+.project .button-container a:hover::after {
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .project #back {
@@ -148,23 +167,40 @@ function goBack() {
   position: fixed;
   top: 3.75rem;
   right: 3.75rem;
-  background-color: var(--primaryColor);
+  background-color: var(--bgBlack);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--textLightGray);
+  border: 1px solid var(--primaryColor);
   border-radius: 60em;
-  border: none;
-  transition: all 0.25s ease-in-out;
   cursor: pointer;
+
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s linear;
+}
+.project #back::after {
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  left: -25px;
+  height: 260px;
+  width: 230px;
+  border-radius: 38%;
+  box-sizing: border-box;
+  background-color: var(--primaryColor);
+  transform: translateY(0) rotate(0deg);
+  transition: all 0.3s linear;
+  transition: transform 1.5s linear;
+  z-index: -1;
+}
+.project #back:hover::after {
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .project #back .icon {
   margin: 50% 0 0 50%;
   transform: translateY(-48%) translateX(-52%);
-}
-
-.project #back:hover {
-  transform: translateY(-5px);
 }
 
 /* Responsive */
