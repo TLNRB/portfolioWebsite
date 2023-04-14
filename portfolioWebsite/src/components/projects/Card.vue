@@ -73,6 +73,7 @@ const { project } = defineProps(['project'])
 .projects .container .inner-container .card-container .card .lower-container .links a {
   font-size: 1.75rem;
   color: var(--textWhite);
+  transition: color 0.25s ease-in-out;
 }
 
 .projects .container .inner-container .card-container .card .lower-container .links a:hover {
@@ -85,6 +86,7 @@ const { project } = defineProps(['project'])
   font-size: 1.75rem;
   color: var(--textWhite);
   cursor: pointer;
+  transition: color 0.25s ease-in-out;
 }
 
 .projects .container .inner-container .card-container .card .lower-container .more-btn:hover {

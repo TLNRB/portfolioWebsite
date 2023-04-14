@@ -154,6 +154,7 @@ const { homeImg } = defineProps(['homeImg'])
 
 .icons a {
   color: var(--textWhite);
+  transition: color 0.25s ease-in-out;
 }
 
 .icons a:hover {

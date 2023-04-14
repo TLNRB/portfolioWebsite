@@ -163,7 +163,7 @@ let filteredProjects = computed(() => {
   box-sizing: border-box;
   background-color: var(--bgBlack);
   transform: translateY(0) rotate(0deg);
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in-out;
   transition: transform 1.5s linear;
   z-index: -1;
 }
@@ -172,6 +172,7 @@ let filteredProjects = computed(() => {
 }
 
 .projects .container .inner-container .text-container .filter-btn-container .btn-active {
+  transition: all 0.3s ease-in-out;
   background-color: var(--bgBlack);
   border: 1px solid var(--primaryColor);
 }
