@@ -32,26 +32,24 @@ const handleSelectSection = (id) => {
 </script>
 
 <template>
-  <header>
-    <nav :class="{ 'nav-active': isMenuOpen && screenWidth <= 768 }">
-      <div @click="toggleMenu" class="menu-icon">
-        <span class="menu-icon__line menu-icon__line-left"></span>
-        <span class="menu-icon__line"></span>
-        <span class="menu-icon__line menu-icon__line-right"></span>
-      </div>
-      <ul class="menu" :class="{ 'is-open': isMenuOpen && screenWidth <= 768 }">
-        <li
-          v-for="section in sections"
-          :key="section.id"
-          @click="handleSelectSection(section.id, section.active)"
-          :class="[section.active ? 'active' : '']"
-        >
-          <span>{{ section.number }}</span
-          ><span>{{ section.title }}</span>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <nav :class="{ 'nav-active': isMenuOpen && screenWidth <= 768 }">
+    <div @click="toggleMenu" class="menu-icon">
+      <span class="menu-icon__line menu-icon__line-left"></span>
+      <span class="menu-icon__line"></span>
+      <span class="menu-icon__line menu-icon__line-right"></span>
+    </div>
+    <ul class="menu" :class="{ 'is-open': isMenuOpen && screenWidth <= 768 }">
+      <li
+        v-for="section in sections"
+        :key="section.id"
+        @click="handleSelectSection(section.id, section.active)"
+        :class="[section.active ? 'active' : '']"
+      >
+        <span>{{ section.number }}</span
+        ><span>{{ section.title }}</span>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <style scoped>
@@ -65,6 +63,7 @@ nav {
   position: fixed;
   top: 3rem;
   z-index: 10;
+  transition: transform 0.2s ease-in-out;
 }
 
 nav::-webkit-scrollbar {

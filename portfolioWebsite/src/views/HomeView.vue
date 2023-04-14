@@ -72,8 +72,16 @@ const setSectionStatus = () => {
   }
 }
 
+//Nav move up after scroll position
+const isScrolling = ref(false)
+
 const handleScroll = () => {
   setSectionStatus()
+  if (window.pageYOffset > 0 && window.innerWidth > 768) {
+    isScrolling.value = true
+  } else {
+    isScrolling.value = false
+  }
 }
 
 //Scroll handle added when the app mounts
@@ -87,7 +95,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Navbar :sections="sections" @select-section="handleSelectSection" />
+  <Navbar
+    :sections="sections"
+    @select-section="handleSelectSection"
+    :class="{ 'scroll-up': isScrolling }"
+  />
   <Home id="home" :homeImg="profilePic" />
   <About id="about" />
   <Projects id="projects" />
@@ -95,4 +107,9 @@ onUnmounted(() => {
   <FooterSection id="contact" />
 </template>
 
-<style scoped></style>
+<style scoped>
+.scroll-up {
+  transform: translateY(-2rem);
+  transition: transform 0.2s ease-in-out;
+}
+</style>
