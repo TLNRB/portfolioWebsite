@@ -1,11 +1,11 @@
 <script setup>
-import p from '../data/projects.json'
+/* import allProjects from '../data/projects.json' */
 /* JSON file in javascript to be able to display images after building the website */
-/* import p from '../data/projects.js' */
+import allProjects from '../data/projects.js'
 import { ref } from 'vue'
 
 import Card from '../components/projects/Card.vue'
-const projects = ref(p)
+const projects = ref(allProjects)
 </script>
 
 <template>
