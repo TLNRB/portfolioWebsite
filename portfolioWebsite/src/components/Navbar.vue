@@ -103,13 +103,17 @@ nav::-webkit-scrollbar-thumb {
   cursor: pointer;
   transition: 0.35s all ease-in;
   position: relative;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 3px;
 }
 
-.menu li::before {
+.menu li span {
+  padding-bottom: 3px;
+}
+
+.menu li span::before {
   position: absolute;
   bottom: 0;
+  left: 0;
   background: var(--primaryColor);
   height: 2px;
   display: block;
@@ -118,24 +122,15 @@ nav::-webkit-scrollbar-thumb {
   transition: 0.35s all ease-in;
 }
 
-.menu li:hover::before {
+.menu li span:hover::before {
   width: 100%;
-}
-.menu li:before {
-  bottom: 0;
-  left: 0;
 }
 
 .menu li span:first-child {
   display: none;
 }
 
-/* .menu li span:last-child {
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-} */
-
-.menu .active::before {
+.menu .active span:last-child::before {
   position: absolute;
   bottom: 0;
   background: var(--textWhite);
@@ -178,29 +173,18 @@ nav::-webkit-scrollbar-thumb {
     font-weight: 500;
   }
 
-  .menu .active span:last-child {
-    border-bottom: 2px solid var(--textWhite);
-  }
-
-  .menu .active span:last-child:hover {
-    border-bottom: 2px solid var(--primaryColor);
-  }
-
   .menu li {
     margin-bottom: 1.5rem;
     width: fit-content;
-  }
-
-  .menu li:last-child {
-    margin-bottom: 0;
-  }
-
-  .menu li {
     padding-left: 2.125rem;
     color: var(--textWhite);
     font-size: 2.5rem;
     font-weight: 500;
-    border-bottom: 3px solid transparent;
+    padding-top: 0;
+  }
+
+  .menu li:last-child {
+    margin-bottom: 0;
   }
 
   .menu li:hover {
@@ -209,6 +193,15 @@ nav::-webkit-scrollbar-thumb {
 
   .menu li:hover span:first-child {
     color: var(--primaryColor);
+    transition: 0.25s all ease-in-out;
+  }
+
+  .menu li span::before {
+    height: 3px;
+  }
+
+  .menu .active span:last-child::before {
+    height: 3px;
   }
 
   /* ----- Menu Icon ----- */

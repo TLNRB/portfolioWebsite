@@ -55,7 +55,9 @@ const setSectionStatus = () => {
     Math.floor(window.innerHeight + window.pageYOffset) ==
       (section0Height + section1Height + section2Height + section3Height + section4Height ||
         section0Height + section1Height + section2Height + section3Height + section4Height + 1 ||
-        section0Height + section1Height + section2Height + section3Height + section4Height - 1)
+        section0Height + section1Height + section2Height + section3Height + section4Height - 1) ||
+    window.innerHeight + window.pageYOffset ==
+      section0Height + section1Height + section2Height + section3Height + section4Height
   ) {
     sectionStatus(4)
   } else if (scrollPosition < section0Height - 150) {
