@@ -111,7 +111,7 @@ onUnmounted(() => {
 
 <style scoped>
 .scroll-up {
-  transform: translateY(-2rem);
-  transition: transform 0.2s ease-in-out;
+  transform: translateY(-2.5rem);
+  transition: transform 0.25s ease-in-out;
 }
 </style>
