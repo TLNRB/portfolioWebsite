@@ -101,32 +101,49 @@ nav::-webkit-scrollbar-thumb {
   font-weight: 600;
   color: var(--textWhite);
   cursor: pointer;
+  transition: 0.35s all ease-in;
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
-.menu li span {
-  padding-bottom: 2px;
+.menu li::before {
+  position: absolute;
+  bottom: 0;
+  background: var(--primaryColor);
+  height: 2px;
+  display: block;
+  content: '';
+  width: 0;
+  transition: 0.35s all ease-in;
+}
+
+.menu li:hover::before {
+  width: 100%;
+}
+.menu li:before {
+  bottom: 0;
+  left: 0;
 }
 
 .menu li span:first-child {
   display: none;
 }
 
-.menu li span:last-child {
+/* .menu li span:last-child {
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
-}
+} */
 
-.menu .active span:last-child {
-  border-bottom: 2px solid var(--textWhite);
-}
-
-.menu .active span:last-child:hover {
-  border-bottom: 2px solid var(--primaryColor);
-}
-
-.menu li:hover {
-  font-weight: 600;
-  color: var(--primaryColor);
+.menu .active::before {
+  position: absolute;
+  bottom: 0;
+  background: var(--textWhite);
+  height: 2px;
+  display: block;
+  content: '';
+  width: 100%;
+  transition: 0.35s all ease-in;
 }
 
 @media screen and (max-width: 768px) {
