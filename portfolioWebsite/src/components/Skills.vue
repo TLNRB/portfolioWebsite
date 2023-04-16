@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const { skillsImg, skillsImgMobile } = defineProps(['skillsImg', 'skillsImgMobile'])
+const { skillsImg, skillsImgMobile, skill } = defineProps(['skillsImg', 'skillsImgMobile', 'skill'])
 const isMobile = ref(false)
 
 // Add a listener to detect when the viewport width changes
@@ -28,6 +28,42 @@ window.addEventListener('resize', () => {
           the right one from our library of blocks and see the magic unfold.
         </div>
         <div class="skill-container">
+          <div class="slider-container">
+            <div class="slider">
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+            </div>
+            <div class="slider">
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+              <div class="skill">
+                <img src="../assets/images/ref.jpg" alt="" />
+              </div>
+            </div>
+          </div>
           <div class="headline">
             <h2>My Stack</h2>
             <h2>For Development</h2>
@@ -102,12 +138,76 @@ window.addEventListener('resize', () => {
 }
 
 .skills .container .content .skill-container {
+  overflow: hidden;
   width: 550px;
   height: 350px;
   margin: 0 auto;
-  padding: 1.25rem 2rem;
   border: 2px solid var(--primaryColor);
   border-radius: 15px;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -125%;
+  }
+}
+
+.skills .container .content .skill-container .slider-container {
+  width: 150%;
+  height: 80%;
+  display: flex;
+  gap: 1.5rem;
+  animation: slide 30s linear infinite alternate;
+}
+
+.skills .container .content .skill-container .slider-container:hover {
+  animation-play-state: paused;
+}
+
+.skills .container .content .skill-container .slider-container .slider {
+  margin: 1.25rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill {
+  width: 125px;
+  height: 125px;
+  border-radius: 60em;
+  background-color: var(--bgLightBlack);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill:first-child {
+  margin-top: 35px;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill:nth-child(2) {
+  margin-top: 75px;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill:nth-child(3) {
+  margin-top: 15px;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill:nth-child(4) {
+  margin-top: 70px;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill:nth-child(5) {
+  margin-top: 100px;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill img {
+  width: 65px;
+  height: 65px;
 }
 
 .skills .container .content .skill-container .headline {
