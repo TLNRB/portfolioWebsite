@@ -145,7 +145,7 @@ const skills = ref(allSkills)
 .skills .container .content .skill-container .slider-container {
   width: 275%;
   height: 80%;
-  animation: slide 25s linear infinite alternate;
+  animation: slide 20s linear infinite alternate;
 }
 
 .skills .container .content .skill-container .slider-container .slider {
