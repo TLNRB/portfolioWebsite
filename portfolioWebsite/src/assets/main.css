@@ -20,4 +20,16 @@ body {
   overflow-x: hidden;
   background-color: var(--bgBlack);
   color: var(--textWhite);
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 60em;
+  background-color: var(--primaryColor);
+  cursor: pointer;
 }
