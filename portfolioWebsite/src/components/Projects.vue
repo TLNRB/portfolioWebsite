@@ -172,7 +172,7 @@ let filteredProjects = computed(() => {
 }
 
 .projects .container .inner-container .text-container .filter-btn-container .btn-active {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear;
   background-color: var(--bgBlack);
   border: 1px solid var(--primaryColor);
 }
