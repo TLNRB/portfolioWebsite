@@ -145,7 +145,7 @@ const skills = ref(allSkills)
 .skills .container .content .skill-container .slider-container {
   width: 275%;
   height: 80%;
-  animation: slide 5s linear infinite alternate;
+  animation: slide 25s linear infinite alternate;
 }
 
 .skills .container .content .skill-container .slider-container .slider {
@@ -229,6 +229,11 @@ const skills = ref(allSkills)
   .skills .container .content .skill-container .slider-container .slider .skill {
     width: 75px;
     height: 75px;
+    border: 1px solid transparent;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill:hover {
+    border: 1px solid var(--primaryColorToned);
   }
 
   .skills .container .content .skill-container .slider-container .slider .skill img {
