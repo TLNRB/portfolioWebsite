@@ -53,11 +53,25 @@ footer div div a {
   font-size: 1rem;
   color: var(--textWhite);
   font-weight: normal;
-  border-bottom: 1px solid transparent;
+  position: relative;
+  padding-bottom: 2px;
+  transition: 0.35s all ease-in;
 }
 
-footer div div a:hover {
-  border-bottom: 1px solid var(--primaryColor);
+footer div div a::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--primaryColor);
+  height: 2px;
+  display: block;
+  content: '';
+  width: 0;
+  transition: 0.35s all ease-in;
+}
+
+footer div div a:hover::before {
+  width: 100%;
 }
 
 footer .contact div {
