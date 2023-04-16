@@ -1,13 +1,21 @@
 <script setup>
 import { ref } from 'vue'
+import allSkills from '../data/skills.js'
+import { transform } from '@vue/compiler-core'
+import { isMap } from '@vue/shared'
 
 const { skillsImg, skillsImgMobile, skill } = defineProps(['skillsImg', 'skillsImgMobile', 'skill'])
 const isMobile = ref(false)
+const isMobileSkill = ref(false)
 
 // Add a listener to detect when the viewport width changes
 window.addEventListener('resize', () => {
   isMobile.value = window.innerWidth < 1068
+  isMobileSkill.value = window.innerWidth < 768
 })
+
+//Skills icons
+const skills = ref(allSkills)
 </script>
 
 <template>
@@ -30,37 +38,15 @@ window.addEventListener('resize', () => {
         <div class="skill-container">
           <div class="slider-container">
             <div class="slider">
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-            </div>
-            <div class="slider">
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
-              </div>
-              <div class="skill">
-                <img src="../assets/images/ref.jpg" alt="" />
+              <div
+                v-for="skill in skills"
+                :key="skill.id"
+                class="skill"
+                :style="{
+                  marginTop: isMobileSkill ? `${1.5 * skill.marginTop}px` : `${skill.marginTop}px`
+                }"
+              >
+                <img :src="skill.img" :alt="skill.desc" />
               </div>
             </div>
           </div>
@@ -152,20 +138,14 @@ window.addEventListener('resize', () => {
   }
 
   100% {
-    left: -125%;
+    left: -175%;
   }
 }
 
 .skills .container .content .skill-container .slider-container {
-  width: 150%;
+  width: 275%;
   height: 80%;
-  display: flex;
-  gap: 1.5rem;
-  animation: slide 30s linear infinite alternate;
-}
-
-.skills .container .content .skill-container .slider-container:hover {
-  animation-play-state: paused;
+  animation: slide 5s linear infinite alternate;
 }
 
 .skills .container .content .skill-container .slider-container .slider {
@@ -179,30 +159,17 @@ window.addEventListener('resize', () => {
   width: 125px;
   height: 125px;
   border-radius: 60em;
+  border: 2px solid transparent;
   background-color: var(--bgLightBlack);
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: border 0.25s ease-in-out;
 }
 
-.skills .container .content .skill-container .slider-container .slider .skill:first-child {
-  margin-top: 35px;
-}
-
-.skills .container .content .skill-container .slider-container .slider .skill:nth-child(2) {
-  margin-top: 75px;
-}
-
-.skills .container .content .skill-container .slider-container .slider .skill:nth-child(3) {
-  margin-top: 15px;
-}
-
-.skills .container .content .skill-container .slider-container .slider .skill:nth-child(4) {
-  margin-top: 70px;
-}
-
-.skills .container .content .skill-container .slider-container .slider .skill:nth-child(5) {
-  margin-top: 100px;
+.skills .container .content .skill-container .slider-container .slider .skill:hover {
+  border: 2px solid var(--primaryColorToned);
 }
 
 .skills .container .content .skill-container .slider-container .slider .skill img {
@@ -238,6 +205,35 @@ window.addEventListener('resize', () => {
   .skills .container .content .skill-container {
     width: 400px;
     height: 300px;
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -130%;
+    }
+  }
+
+  .skills .container .content .skill-container .slider-container {
+    width: 230%;
+    height: 70%;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider {
+    gap: 1rem;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill {
+    width: 75px;
+    height: 75px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill img {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -295,9 +291,38 @@ window.addEventListener('resize', () => {
     width: 500px;
     height: 350px;
     margin: 0 auto;
-    padding: 1.25rem 2rem;
     border: 2px solid var(--primaryColor);
     border-radius: 15px;
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -150%;
+    }
+  }
+
+  .skills .container .content .skill-container .slider-container {
+    width: 250%;
+    height: 80%;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider {
+    margin: 2rem 0;
+    gap: 1.5rem;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill img {
+    width: 55px;
+    height: 55px;
   }
 }
 
@@ -312,6 +337,36 @@ window.addEventListener('resize', () => {
   .skills .container .content .skill-container {
     width: 350px;
     height: 450px;
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -235%;
+    }
+  }
+
+  .skills .container .content .skill-container .slider-container {
+    width: 335%;
+    height: 80%;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider {
+    margin: 3rem 0;
+    gap: 1rem;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill img {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -343,7 +398,41 @@ window.addEventListener('resize', () => {
     width: 250px;
     height: 350px;
     border-radius: 10px;
-    padding: 1.25rem;
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -250%;
+    }
+  }
+
+  .skills .container .content .skill-container .slider-container {
+    width: 350%;
+    height: 80%;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider {
+    margin: 1.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill {
+    width: 75px;
+    height: 75px;
+    border: 1px solid transparent;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill:hover {
+    border: 1px solid var(--primaryColorToned);
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill img {
+    width: 40px;
+    height: 40px;
   }
 
   .skills .container .content .text {
@@ -387,6 +476,26 @@ window.addEventListener('resize', () => {
   .skills .container .content .skill-container {
     width: 175px;
     height: 400px;
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -355%;
+    }
+  }
+
+  .skills .container .content .skill-container .slider-container {
+    width: 455%;
+    height: 80%;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider {
+    margin: 3rem 0;
+    gap: 0rem;
   }
 }
 </style>
