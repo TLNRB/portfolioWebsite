@@ -11,6 +11,9 @@ import Projects from '../components/Projects.vue'
 import Skills from '../components/Skills.vue'
 import FooterSection from '../components/FooterSection.vue'
 
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
 // ---------- Nav links ----------
 const sections = ref([
   { id: 'home', number: '00', title: 'Home.', active: true },

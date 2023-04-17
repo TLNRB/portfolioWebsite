@@ -1,4 +1,49 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+const container = ref(null)
+const text = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'top center',
+      end: '80% center',
+      scrub: true,
+      markers: true
+    }
+  })
+  const words = text.value.textContent.trim().split(' ')
+  text.value.textContent = ''
+
+  words.forEach((word) => {
+    const span = document.createElement('span')
+    span.textContent = word + ' '
+    text.value.appendChild(span)
+    tl.from(span, {
+      fontWeight: '600'
+    })
+    tl.to(span, {
+      color: 'var(--textWhite)',
+      fontWeight: '600',
+      duration: 1,
+      ease: 'none'
+    })
+  })
+
+  ScrollTrigger.addEventListener('refresh', () => {
+    tl.invalidate()
+  })
+
+  onUnmounted(() => {
+    tl.kill()
+  })
+})
+</script>
 
 <template>
   <section id="about" class="about">
@@ -6,8 +51,8 @@
       <h1 class="section-number">01</h1>
       <h1 class="section-name">About.</h1>
     </div>
-    <div class="content">
-      <p>
+    <div class="content" ref="container">
+      <p ref="text">
         In Chronicle everything is made with Blocks that come with pixel perfect design,
         interactivity and motion out of the box. Instead of designing from scratch, simply choose
         the right one from our library of blocks and see the magic unfold.
