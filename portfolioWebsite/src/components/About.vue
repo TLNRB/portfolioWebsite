@@ -13,10 +13,9 @@ onMounted(() => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
-      start: '-30% center',
-      end: 'center center',
-      scrub: 1,
-      markers: true
+      start: window.innerWidth > 1068 ? '-25% center' : '-15% center',
+      end: window.innerWidth > 1068 ? 'center center' : '55% center',
+      scrub: 1
     }
   })
 
