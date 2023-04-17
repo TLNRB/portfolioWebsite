@@ -13,8 +13,9 @@ onMounted(() => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
-      start: window.innerWidth > 1068 ? '-25% center' : '-15% center',
-      end: window.innerWidth > 1068 ? 'center center' : '55% center',
+      start: window.innerWidth > 1068 ? '-15% center' : '-10% center',
+      end: window.innerWidth > 1068 ? '55% center' : '60% center',
+      markers: true,
       scrub: 1
     }
   })
@@ -39,6 +40,7 @@ onMounted(() => {
     span.classList.add('word')
     text.value.appendChild(span)
     tl.from(span, {
+      color: 'var(--textDarkGray)',
       fontWeight: '600'
     })
     tl.to(span, {
