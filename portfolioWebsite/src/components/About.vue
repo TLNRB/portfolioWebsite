@@ -15,7 +15,6 @@ onMounted(() => {
       trigger: container.value,
       start: window.innerWidth > 1068 ? '-15% center' : '-10% center',
       end: window.innerWidth > 1068 ? '55% center' : '60% center',
-      markers: true,
       scrub: 1
     }
   })
