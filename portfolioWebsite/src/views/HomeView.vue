@@ -3,7 +3,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import profilePic from '../assets/images/best.jpg'
 import bubbleWeb from '../assets/images/bubbleBG.png'
 import bubbleMobile from '../assets/images/bubbleBGMobile.png'
-import skillImg from '../assets/images/ref.jpg'
 
 import Home from '../components/Home.vue'
 import Navbar from '../components/Navbar.vue'
@@ -106,7 +105,7 @@ onUnmounted(() => {
   <Home id="home" :homeImg="profilePic" />
   <About id="about" />
   <Projects id="projects" />
-  <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" :skill="skill" />
+  <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" />
   <FooterSection id="contact" />
 </template>
 

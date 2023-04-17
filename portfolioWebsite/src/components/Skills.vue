@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import allSkills from '../data/skills.js'
-import { transform } from '@vue/compiler-core'
-import { isMap } from '@vue/shared'
 
 const { skillsImg, skillsImgMobile, skill } = defineProps(['skillsImg', 'skillsImgMobile', 'skill'])
 const isMobile = ref(false)
@@ -175,6 +173,7 @@ const skills = ref(allSkills)
 .skills .container .content .skill-container .slider-container .slider .skill img {
   width: 65px;
   height: 65px;
+  opacity: 0.8;
 }
 
 .skills .container .content .skill-container .headline {
