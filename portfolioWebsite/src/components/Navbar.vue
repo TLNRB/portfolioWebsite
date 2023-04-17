@@ -98,7 +98,6 @@ nav::-webkit-scrollbar-thumb {
 
 .menu li {
   font-size: 1rem;
-  font-weight: 600;
   color: var(--textWhite);
   cursor: pointer;
   transition: 0.35s all ease-in;
@@ -108,9 +107,10 @@ nav::-webkit-scrollbar-thumb {
 
 .menu li span {
   padding-bottom: 3px;
+  font-weight: 500;
 }
 
-.menu li span::before {
+.menu li span:last-child::before {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -122,7 +122,7 @@ nav::-webkit-scrollbar-thumb {
   transition: 0.35s all ease-in;
 }
 
-.menu li span:hover::before {
+.menu li span:last-child:hover::before {
   width: 100%;
 }
 
@@ -187,16 +187,13 @@ nav::-webkit-scrollbar-thumb {
     margin-bottom: 0;
   }
 
-  .menu li:hover {
-    color: var(--textWhite);
-  }
-
   .menu li:hover span:first-child {
     color: var(--primaryColor);
+    font-weight: 500;
     transition: 0.25s all ease-in-out;
   }
 
-  .menu li span::before {
+  .menu li span:last-child::before {
     height: 3px;
   }
 

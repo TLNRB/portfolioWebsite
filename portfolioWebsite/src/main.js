@@ -15,14 +15,7 @@ import {
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 /* import brand icons */
-import {
-  faLinkedin,
-  faGithub,
-  faSquareGithub,
-  faJs,
-  faVuejs,
-  faSass
-} from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faJs, faVuejs, faSass, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
 library.add(
@@ -31,9 +24,8 @@ library.add(
   faDownload,
   faCircleInfo,
   faXmark,
-  faLinkedin,
+  faLinkedinIn,
   faGithub,
-  faSquareGithub,
   faJs,
   faVuejs,
   faSass
