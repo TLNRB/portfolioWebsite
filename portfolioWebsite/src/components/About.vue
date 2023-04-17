@@ -10,12 +10,13 @@ const text = ref(null)
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
-  const firstTimeline = gsap.timeline({
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
-      start: 'top center',
-      end: '75% center',
-      scrub: 1
+      start: '-30% center',
+      end: 'center center',
+      scrub: 1,
+      markers: true
     }
   })
 
@@ -38,45 +39,6 @@ onMounted(() => {
     span.textContent = word + ' '
     span.classList.add('word')
     text.value.appendChild(span)
-    firstTimeline.from(span, {
-      fontWeight: '600'
-    })
-    firstTimeline.to(span, {
-      color: 'var(--textWhite)',
-      fontWeight: '600'
-    })
-  })
-
-  ScrollTrigger.addEventListener('refresh', () => {
-    firstTimeline.invalidate(), secondTimeline.invalidate()
-  })
-
-  onUnmounted(() => {
-    firstTimelinetl.kill(), secondTimeline.kill()
-  })
-})
-
-/* onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: container.value,
-      start: 'center center',
-      end: '+=1000px',
-      pin: 'body',
-      scrub: 1,
-      markers: true
-    }
-  })
-
-  const words = text.value.textContent.trim().split(' ')
-  text.value.textContent = ''
-
-  words.forEach((word) => {
-    const span = document.createElement('span')
-    span.textContent = word + ' '
-    text.value.appendChild(span)
     tl.from(span, {
       fontWeight: '600'
     })
@@ -93,7 +55,7 @@ onMounted(() => {
   onUnmounted(() => {
     tl.kill()
   })
-}) */
+})
 </script>
 
 <template>
