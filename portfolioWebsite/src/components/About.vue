@@ -6,17 +6,70 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 const container = ref(null)
 const text = ref(null)
 
+//About text scrollTrigger animation
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  const tl = gsap.timeline({
+
+  const firstTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
       start: 'top center',
-      end: '80% center',
-      scrub: true,
+      end: '75% center',
+      scrub: 1
+    }
+  })
+
+  /* const secondTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: '45% center',
+      end: '120% center',
+      pin: '.appContainer',
+      pinSpacing: false,
+      scrub: true
+    }
+  }) */
+
+  const words = text.value.textContent.trim().split(' ')
+  text.value.textContent = ''
+
+  words.forEach((word) => {
+    const span = document.createElement('span')
+    span.textContent = word + ' '
+    span.classList.add('word')
+    text.value.appendChild(span)
+    firstTimeline.from(span, {
+      fontWeight: '600'
+    })
+    firstTimeline.to(span, {
+      color: 'var(--textWhite)',
+      fontWeight: '600'
+    })
+  })
+
+  ScrollTrigger.addEventListener('refresh', () => {
+    firstTimeline.invalidate(), secondTimeline.invalidate()
+  })
+
+  onUnmounted(() => {
+    firstTimelinetl.kill(), secondTimeline.kill()
+  })
+})
+
+/* onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'center center',
+      end: '+=1000px',
+      pin: 'body',
+      scrub: 1,
       markers: true
     }
   })
+
   const words = text.value.textContent.trim().split(' ')
   text.value.textContent = ''
 
@@ -29,9 +82,7 @@ onMounted(() => {
     })
     tl.to(span, {
       color: 'var(--textWhite)',
-      fontWeight: '600',
-      duration: 1,
-      ease: 'none'
+      fontWeight: '600'
     })
   })
 
@@ -42,16 +93,16 @@ onMounted(() => {
   onUnmounted(() => {
     tl.kill()
   })
-})
+}) */
 </script>
 
 <template>
-  <section id="about" class="about">
+  <section id="about" class="about" ref="container">
     <div class="title">
       <h1 class="section-number">01</h1>
       <h1 class="section-name">About.</h1>
     </div>
-    <div class="content" ref="container">
+    <div class="content">
       <p ref="text">
         In Chronicle everything is made with Blocks that come with pixel perfect design,
         interactivity and motion out of the box. Instead of designing from scratch, simply choose
@@ -115,6 +166,12 @@ onMounted(() => {
   font-size: 3.75rem;
   font-weight: 600;
   line-height: 67px;
+  color: var(--textDarkGray);
+}
+
+.word {
+  font-size: 3.75rem;
+  font-weight: 600;
   color: var(--textDarkGray);
 }
 

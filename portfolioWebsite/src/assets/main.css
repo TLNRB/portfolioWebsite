@@ -25,7 +25,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 4px;
-  background-color: transparent;
+  background-color: var(--bgBlack);
 }
 
 ::-webkit-scrollbar-thumb {

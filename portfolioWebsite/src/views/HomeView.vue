@@ -11,9 +11,6 @@ import Projects from '../components/Projects.vue'
 import Skills from '../components/Skills.vue'
 import FooterSection from '../components/FooterSection.vue'
 
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-
 // ---------- Nav links ----------
 const sections = ref([
   { id: 'home', number: '00', title: 'Home.', active: true },
@@ -105,11 +102,13 @@ onUnmounted(() => {
     @select-section="handleSelectSection"
     :class="{ 'scroll-up': isScrolling }"
   />
-  <Home id="home" :homeImg="profilePic" />
-  <About id="about" />
-  <Projects id="projects" />
-  <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" />
-  <FooterSection id="contact" />
+  <div class="appContainer">
+    <Home id="home" :homeImg="profilePic" />
+    <About id="about" />
+    <Projects id="projects" />
+    <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" />
+    <FooterSection id="contact" />
+  </div>
 </template>
 
 <style scoped>
