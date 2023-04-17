@@ -175,7 +175,7 @@ onMounted(() => {
   box-sizing: border-box;
   background-color: var(--bgBlack);
   transform: translateY(0) rotate(0deg);
-  transition: all 1.5s linear;
+  transition: all 1.25s linear;
   z-index: -1;
 }
 .about .content .btn-container a:hover::after {

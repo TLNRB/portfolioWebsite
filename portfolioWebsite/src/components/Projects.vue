@@ -164,7 +164,7 @@ let filteredProjects = computed(() => {
   background-color: var(--bgBlack);
   transform: translateY(0) rotate(0deg);
   transition: all 0.3s ease-in-out;
-  transition: transform 1.5s linear;
+  transition: transform 1.25s linear;
   z-index: -1;
 }
 .projects .container .inner-container .text-container .filter-btn-container button:hover::after {

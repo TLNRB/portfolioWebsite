@@ -428,6 +428,7 @@ const skills = ref(allSkills)
     width: 75px;
     height: 75px;
     border: 1px solid transparent;
+    transition: border 0.25s ease-in-out;
   }
 
   .skills .container .content .skill-container .slider-container .slider .skill:hover {

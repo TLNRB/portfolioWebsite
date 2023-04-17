@@ -154,7 +154,7 @@ function goBack() {
   background-color: var(--primaryColor);
   transform: translateY(0) rotate(0deg);
   transition: all 0.3s linear;
-  transition: transform 1.5s linear;
+  transition: transform 1.25s linear;
   z-index: -1;
 }
 .project .button-container a:hover::after {
@@ -191,7 +191,7 @@ function goBack() {
   background-color: var(--primaryColor);
   transform: translateY(0) rotate(0deg);
   transition: all 0.3s linear;
-  transition: transform 1.5s linear;
+  transition: transform 1.25s linear;
   z-index: -1;
 }
 .project #back:hover::after {
