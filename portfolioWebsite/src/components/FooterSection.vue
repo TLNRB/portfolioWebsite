@@ -10,15 +10,14 @@ const socials = ref(null)
 const contact = ref(null)
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
   if (window.innerWidth <= 768) {
+    gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container.value,
         start: 'top bottom',
         end: '80% bottom',
-        scrub: 1,
-        markers: true
+        scrub: 1
       }
     })
 
