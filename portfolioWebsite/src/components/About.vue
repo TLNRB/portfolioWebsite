@@ -44,8 +44,7 @@ onMounted(() => {
   })
 
   buttonTimeline.from(button.value, {
-    y: '400%',
-    overflow: 'hidden'
+    y: '400%'
   })
 
   /* const secondTimeline = gsap.timeline({
@@ -77,12 +76,10 @@ onMounted(() => {
     })
   })
 
-  ScrollTrigger.addEventListener('refresh', () => {
-    tl.invalidate()
-  })
-
   onUnmounted(() => {
     tl.kill()
+    titleTimeline.kill()
+    buttonTimeline.kill()
   })
 })
 </script>

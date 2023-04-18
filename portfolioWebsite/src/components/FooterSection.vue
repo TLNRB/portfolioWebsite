@@ -1,19 +1,60 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//About text scrollTrigger animation
+const container = ref(null)
+const version = ref(null)
+const socials = ref(null)
+const contact = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  if (window.innerWidth <= 768) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.value,
+        start: 'top bottom',
+        end: '80% bottom',
+        scrub: 1,
+        markers: true
+      }
+    })
+
+    tl.from(container.value, {
+      x: '-100%'
+    })
+
+    tl.to(container.value, {
+      x: '0%'
+    })
+
+    ScrollTrigger.addEventListener('refresh', () => {
+      tl.invalidate()
+    })
+
+    onUnmounted(() => {
+      tl.kill()
+    })
+  }
+})
+</script>
 
 <template>
-  <footer id="contact">
-    <div class="version">
+  <footer id="contact" ref="container">
+    <div class="version" ref="version">
       <p>Version</p>
       <p>2023 &copy; Norbert Tolnai</p>
     </div>
-    <div class="socials">
+    <div class="socials" ref="socials">
       <p>Socials</p>
       <div class="content-container">
         <a href="">GitHub</a>
         <a href="">LinkedIn</a>
       </div>
     </div>
-    <div class="contact">
+    <div class="contact" ref="contact">
       <p>Contact</p>
       <div class="content-container">
         <p>tolnainorbi16@gmail.com</p>
@@ -33,6 +74,7 @@ footer {
   font-size: 1rem;
   color: var(--textWhite);
   font-weight: normal;
+  overflow: hidden;
 }
 
 footer > div > p:first-child {
