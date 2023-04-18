@@ -97,12 +97,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Navbar
-    :sections="sections"
-    @select-section="handleSelectSection"
-    :class="{ 'scroll-up': isScrolling }"
-  />
   <div class="appContainer">
+    <Navbar
+      :sections="sections"
+      @select-section="handleSelectSection"
+      :class="{ 'scroll-up': isScrolling }"
+    />
     <Home id="home" :homeImg="profilePic" />
     <About id="about" />
     <Projects id="projects" />
@@ -112,6 +112,9 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.appContainer {
+  overflow: hidden;
+}
 .scroll-up {
   transform: translateY(-2.5rem);
   transition: transform 0.25s ease-in-out;
