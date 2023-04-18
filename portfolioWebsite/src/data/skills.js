@@ -44,9 +44,9 @@ const skills = [
   },
   {
     id: 6,
-    title: 'Vue',
-    desc: 'Vue Icon',
-    img: vueImg,
+    title: 'SCSS',
+    desc: 'SCSS Icon',
+    img: sassImg,
     marginTop: 35
   },
   {
@@ -72,9 +72,9 @@ const skills = [
   },
   {
     id: 10,
-    title: 'SCSS',
-    desc: 'SCSS Icon',
-    img: sassImg,
+    title: 'Vue',
+    desc: 'Vue Icon',
+    img: vueImg,
     marginTop: 100
   }
 ]
