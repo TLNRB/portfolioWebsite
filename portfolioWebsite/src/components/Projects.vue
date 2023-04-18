@@ -76,6 +76,7 @@ onMounted(() => {
     titleTimeline.kill()
     textTimeline.kill()
     buttonTimeline.kill()
+    cardTimeline.kill()
   })
 })
 

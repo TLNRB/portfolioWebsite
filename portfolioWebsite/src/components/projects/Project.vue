@@ -1,5 +1,65 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//Home content animation
+const title = ref(null)
+const roleInfo = ref(null)
+const yearInfo = ref(null)
+const builtInfo = ref(null)
+const description = ref(null)
+const image = ref(null)
+const buttons = ref(null)
+const buttonBack = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  const tl = gsap.timeline()
+
+  tl.from(title.value, {
+    y: window.innerWidth > 1068 ? -75 : -50,
+    opacity: 0,
+    duration: 0.75
+  })
+    .from(
+      [roleInfo.value, yearInfo.value, builtInfo.value],
+      {
+        y: window.innerWidth > 1068 ? -50 : -25,
+        opacity: 0,
+        duration: window.innerWidth > 1068 ? 0.75 : 0.5,
+        stagger: 0.25
+      },
+      0.75
+    )
+    .from(description.value, {
+      x: window.innerWidth > 1068 ? -50 : -25,
+      opacity: 0,
+      duration: window.innerWidth > 1068 ? 0.75 : 0.5
+    })
+    .from([image.value, buttons.value], {
+      y: window.innerWidth > 1068 ? 50 : 25,
+      opacity: 0,
+      duration: window.innerWidth > 1068 ? 0.75 : 0.5
+    })
+    .from(
+      buttonBack.value,
+      {
+        y: window.innerWidth > 1068 ? -75 : -25,
+        opacity: 0,
+        duration: 0.5
+      },
+      0
+    )
+
+  tl.to(buttonBack.value, { y: 0, opacity: 1, duration: 0.5 })
+
+  onUnmounted(() => {
+    tl.kill()
+  })
+})
+
 const { project } = defineProps(['project'])
 
 //Goes back to previous page same position
@@ -14,36 +74,36 @@ function goBack() {
   <section class="project">
     <!-- Project goes here -->
     <div class="upper-container">
-      <h1>{{ project.title }}</h1>
+      <h1 ref="title">{{ project.title }}</h1>
       <div class="info-container">
         <!-- Informations goes here -->
-        <div class="info">
+        <div class="info" ref="roleInfo">
           <h3>Role</h3>
           <p>{{ project.role }}</p>
         </div>
-        <div class="info">
+        <div class="info" ref="yearInfo">
           <h3>Year</h3>
           <p>{{ project.year }}</p>
         </div>
-        <div class="info">
+        <div class="info" ref="builtInfo">
           <h3>Built with</h3>
           <div>
             <p v-for="item in project.built">{{ item }}</p>
           </div>
         </div>
       </div>
-      <p class="description">
+      <p class="description" ref="description">
         {{ project.description }}
       </p>
     </div>
-    <div class="lower-container">
+    <div class="lower-container" ref="image">
       <img :src="project.img" alt="Project Image" />
     </div>
-    <div class="button-container">
+    <div class="button-container" ref="buttons">
       <a :href="project.gitHub" target="_blank">GitHub</a>
       <a :href="project.liveServer" target="_blank">View Site</a>
     </div>
-    <button @click="goBack" id="back">
+    <button @click="goBack" id="back" ref="buttonBack">
       <font-awesome-icon class="icon" :icon="['fas', 'xmark']" />
     </button>
   </section>
