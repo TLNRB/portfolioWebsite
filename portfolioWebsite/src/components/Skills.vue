@@ -29,9 +29,9 @@ const skills = ref(allSkills)
       </div>
       <div class="content">
         <div class="text">
-          In Chronicle everything is made with Blocks that come with pixel perfect design,
-          interactivity and motion out of the box. Instead of designing from scratch, simply choose
-          the right one from our library of blocks and see the magic unfold.
+          My technical skills in HTML, CSS, and JavaScript are just the foundation of what I bring
+          to the table. I have experience with a variety of front-end frameworks and tools, and I am
+          always eager to expand my knowledge and learn from others.
         </div>
         <div class="skill-container">
           <div class="slider-container">

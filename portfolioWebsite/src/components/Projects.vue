@@ -52,9 +52,9 @@ let filteredProjects = computed(() => {
         <!-- Text and Filter goes here -->
         <div class="text-container">
           <p>
-            In Chronicle everything is made with Blocks that come with pixel perfect design,
-            interactivity and motion out of the box. Instead of designing from scratch, simply
-            choose the right one from our library of blocks and see the magic unfold.
+            In every project I always try to learn from my previous solutions, ideas in a way to be
+            able to make a better work either design or functionality wise. Here you can see my
+            biggest and most recent projects.
           </p>
           <div class="filter-btn-container">
             <button @click="displayAll" :class="{ 'btn-active': activeButton === 'all' }">

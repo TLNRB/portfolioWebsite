@@ -66,9 +66,10 @@ onMounted(() => {
     </div>
     <div class="content">
       <p ref="text">
-        In Chronicle everything is made with Blocks that come with pixel perfect design,
-        interactivity and motion out of the box. Instead of designing from scratch, simply choose
-        the right one from our library of blocks and see the magic unfold.
+        I am from Hungary with a strong passion towards front-end development. I enjoy working on
+        projects that require a diverse skill set, from designing user interfaces to coding web
+        applications. My goal is to create digital experiences that are both beautiful and
+        functional.
       </p>
       <div class="btn-container">
         <a href="" download="">
