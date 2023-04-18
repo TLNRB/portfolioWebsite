@@ -1,10 +1,83 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 import Card from '../components/projects/Card.vue'
 /* import allProjects from '../data/projects.json' */
 /* JSON file in javascript to be able to display images after building the website */
 import allProjects from '../data/projects.js'
+
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//Projects scrollTrigger animation
+const container = ref(null)
+const title = ref(null)
+const text = ref(null)
+const button = ref(null)
+const cardContainer = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const titleTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: window.innerWidth > 1068 ? '-5% center' : 'top center',
+      end: window.innerWidth > 1068 ? '20% center' : '10% center',
+      scrub: 1
+    }
+  })
+
+  titleTimeline.from(title.value, {
+    x: '-100%'
+  })
+
+  const textTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: '5% center',
+      end: '15% center',
+      scrub: 1
+    }
+  })
+
+  textTimeline.from(text.value, {
+    x: window.innerWidth > 1068 ? '-150%' : '-125%'
+  })
+
+  const buttonTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: '5% center',
+      end: window.innerWidth > 1068 ? '15% center' : '17% center',
+      scrub: 1
+    }
+  })
+
+  buttonTimeline.from(button.value, {
+    x: window.innerWidth > 1068 ? '300%' : '-150%'
+  })
+
+  const cardTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: '10% bottom',
+      end: window.innerWidth > 1179 ? '60% bottom' : '25% center',
+      scrub: 1
+    }
+  })
+
+  cardTimeline.from(cardContainer.value, {
+    y: '50%',
+    opacity: 0
+  })
+
+  onUnmounted(() => {
+    titleTimeline.kill()
+    textTimeline.kill()
+    buttonTimeline.kill()
+  })
+})
 
 const projects = ref(allProjects)
 
@@ -41,22 +114,22 @@ let filteredProjects = computed(() => {
 </script>
 
 <template>
-  <section id="projects" class="projects">
+  <section id="projects" class="projects" ref="container">
     <div class="container">
       <!-- Title -->
-      <div class="title">
+      <div class="title" ref="title">
         <h1 class="section-number">02</h1>
         <h1 class="section-name">Projects.</h1>
       </div>
       <div class="inner-container">
         <!-- Text and Filter goes here -->
         <div class="text-container">
-          <p>
+          <p ref="text">
             In every project I always try to learn from my previous solutions, ideas in a way to be
             able to make a better work either design or functionality wise. Here you can see my
             biggest and most recent projects.
           </p>
-          <div class="filter-btn-container">
+          <div class="filter-btn-container" ref="button">
             <button @click="displayAll" :class="{ 'btn-active': activeButton === 'all' }">
               All
             </button>
@@ -68,7 +141,7 @@ let filteredProjects = computed(() => {
             </button>
           </div>
         </div>
-        <div class="card-container">
+        <div class="card-container" ref="cardContainer">
           <!-- Cards Go Here -->
           <Card v-for="project in filteredProjects" :key="project.id" :project="project" />
         </div>
