@@ -6,6 +6,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 //About text scrollTrigger animation
 const container = ref(null)
 const text = ref(null)
+const title = ref(null)
+const button = ref(null)
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
@@ -17,6 +19,33 @@ onMounted(() => {
       end: window.innerWidth > 1068 ? '55% center' : '60% center',
       scrub: 1
     }
+  })
+
+  const titleTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'top center',
+      end: window.innerWidth > 768 ? 'center center' : '30% center',
+      scrub: 1
+    }
+  })
+
+  titleTimeline.from(title.value, {
+    x: window.innerWidth > 1068 ? '-150%' : '-100%'
+  })
+
+  const buttonTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'center center',
+      end: '90% center',
+      scrub: 1
+    }
+  })
+
+  buttonTimeline.from(button.value, {
+    y: '400%',
+    overflow: 'hidden'
   })
 
   /* const secondTimeline = gsap.timeline({
@@ -60,7 +89,7 @@ onMounted(() => {
 
 <template>
   <section id="about" class="about" ref="container">
-    <div class="title">
+    <div class="title" ref="title">
       <h1 class="section-number">01</h1>
       <h1 class="section-name">About.</h1>
     </div>
@@ -71,7 +100,7 @@ onMounted(() => {
         applications. My goal is to create digital experiences that are both beautiful and
         functional.
       </p>
-      <div class="btn-container">
+      <div class="btn-container" ref="button">
         <a href="" download="">
           <span>Download CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'download']" />
@@ -92,6 +121,7 @@ onMounted(() => {
   padding: 6.25rem;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .about .title {
