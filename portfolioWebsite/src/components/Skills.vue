@@ -164,6 +164,10 @@ const skills = ref(allSkills)
   align-items: center;
   cursor: pointer;
   transition: border 0.25s ease-in-out;
+
+  box-shadow: 0px 0px 10px 0px var(--bgBoxShadowBlack);
+  -webkit-box-shadow: 0px 0px 10px 0px var(--bgBoxShadowBlack);
+  -moz-box-shadow: 0px 0px 10px 0px var(--bgBoxShadowBlack);
 }
 
 .skills .container .content .skill-container .slider-container .slider .skill:hover {
