@@ -1,4 +1,36 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//Home content animation
+const title = ref(null)
+const icons = ref(null)
+const apiData = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  const tl = gsap.timeline()
+
+  tl.from(title.value, {
+    y: window.innerWidth > 768 ? 75 : -50,
+    opacity: 0,
+    duration: 0.75
+  }).from(
+    [icons.value, apiData.value],
+    {
+      y: window.innerWidth > 768 ? 50 : -25,
+      opacity: 0,
+      duration: window.innerWidth > 768 ? 0.75 : 0.5
+    },
+    0.25
+  )
+
+  onUnmounted(() => {
+    tl.kill()
+  })
+})
+
 const { homeImg } = defineProps(['homeImg'])
 </script>
 
@@ -7,7 +39,7 @@ const { homeImg } = defineProps(['homeImg'])
     <!-- Home Page Content -->
     <div class="container">
       <!-- Title -->
-      <div class="content-container">
+      <div class="content-container" ref="title">
         <img :src="homeImg" alt="Picture of Norbert Tolnai" />
         <div class="title">
           <h1 id="greet"><span>Hello,</span> I'm</h1>
@@ -18,12 +50,12 @@ const { homeImg } = defineProps(['homeImg'])
         </div>
       </div>
       <!-- API Data and Social Links -->
-      <div class="api-data">
+      <div class="api-data" ref="apiData">
         <p>DE</p>
         <p>9°C</p>
         <p>18:42 PM</p>
       </div>
-      <div class="icons">
+      <div class="icons" ref="icons">
         <a href=""><font-awesome-icon :icon="['fab', 'linkedin-in']" /></a>
         <a href=""><font-awesome-icon :icon="['fab', 'github']" /></a>
       </div>

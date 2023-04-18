@@ -3,10 +3,10 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
+//About text scrollTrigger animation
 const container = ref(null)
 const text = ref(null)
 
-//About text scrollTrigger animation
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
