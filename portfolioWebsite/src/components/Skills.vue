@@ -1,6 +1,49 @@
 <script setup>
-import { ref } from 'vue'
 import allSkills from '../data/skills.js'
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//Skill scrollTrigger animation
+const container = ref(null)
+const content = ref(null)
+const title = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const titleTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'top center',
+      end: window.innerWidth > 1068 ? 'center center' : '30% center',
+      scrub: 1
+    }
+  })
+
+  titleTimeline.from(title.value, {
+    x: window.innerWidth > 1068 ? '-150%' : '-100%'
+  })
+
+  const contentTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: container.value,
+      start: window.innerWidth > 1068 ? 'top center' : '15% center',
+      end: window.innerWidth > 1068 ? 'center center' : '40% center',
+      scrub: 1
+    }
+  })
+
+  contentTimeline.from(content.value, {
+    x: window.innerWidth > 1068 ? 0 : '-125%',
+    y: window.innerWidth > 1068 ? '-250%' : 0
+  })
+
+  onUnmounted(() => {
+    titleTimeline.kill()
+    contentTimeline.kill()
+  })
+})
 
 const { skillsImg, skillsImgMobile, skill } = defineProps(['skillsImg', 'skillsImgMobile', 'skill'])
 const isMobile = ref(false)
@@ -21,19 +64,20 @@ const skills = ref(allSkills)
     id="skills"
     class="skills"
     :style="{ backgroundImage: 'url(' + (isMobile ? skillsImgMobile : skillsImg) + ')' }"
+    ref="container"
   >
     <div class="container">
-      <div class="title">
+      <div class="title" ref="title">
         <h1 class="section-number">03</h1>
         <h1 class="section-name">Skills.</h1>
       </div>
-      <div class="content">
+      <div class="content" ref="content">
         <div class="text">
           My technical skills in HTML, CSS, and JavaScript are just the foundation of what I bring
           to the table. I have experience with a variety of front-end frameworks and tools, and I am
           always eager to expand my knowledge and learn from others.
         </div>
-        <div class="skill-container">
+        <div class="skill-container" ref="skillContainer">
           <div class="slider-container">
             <div class="slider">
               <div
@@ -77,6 +121,7 @@ const skills = ref(allSkills)
   -webkit-backdrop-filter: blur(25px);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
   border-radius: 40px;
+  overflow: hidden;
 }
 
 .skills .title {
@@ -257,6 +302,7 @@ const skills = ref(allSkills)
     flex-direction: column;
     padding: 0 2.5rem 2.5rem 2.5rem;
     border-radius: 30px;
+    overflow: visible;
   }
 
   .skills .title {
