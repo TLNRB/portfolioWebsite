@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import cv from '../assets/cv/TolnaiNorbert-cv-eng.pdf'
 
 //About text scrollTrigger animation
 const container = ref(null)
@@ -98,7 +99,7 @@ onMounted(() => {
         functional.
       </p>
       <div class="btn-container" ref="button">
-        <a href="src/assets/cv/TolnaiNorbert-cv-eng.pdf" download>
+        <a :href="cv" download>
           <span>Download CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'download']" />
         </a>
