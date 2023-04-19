@@ -15,8 +15,8 @@ const projects = [
     framework: 'vue',
     built: ['JavaScript', 'TailWind'],
     img: refImg,
-    gitHub: 'https://github.com/TLNRB/pastaRecepieWebsite',
-    liveServer: 'https://www.google.com/'
+    gitHub: 'https://github.com/TLNRB/pastaPerfect',
+    liveServer: 'https://project-pastaperfect.firebaseapp.com/'
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const projects = [
     built: ['JavaScript'],
     img: refImg,
     gitHub: 'https://github.com/TLNRB/web-dev_1st-semester_project',
-    liveServer: 'https://www.google.com/'
+    liveServer: 'https://project-kxyorkville.firebaseapp.com/'
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const projects = [
     built: ['SCSS', 'JavaScript'],
     img: refImg,
     gitHub: 'https://github.com/HvadisVal/Semester-project',
-    liveServer: 'https://www.google.com/'
+    liveServer: 'https://longhorn-bbq.firebaseapp.com/'
   },
   {
     id: 4,
