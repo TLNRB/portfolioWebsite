@@ -53,7 +53,7 @@ const projects = [
     title: 'Aalborg Journey',
     category: 'Video',
     description:
-      'In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.',
+      'This video was made as a mini project of my own. I captured my first time seeing Aalborg while visiting its most remarkable parts.',
     role: 'Journey Video',
     year: 2023,
     built: ['Premier Pro'],
@@ -66,7 +66,7 @@ const projects = [
     title: 'Apple Add',
     category: 'Video',
     description:
-      'In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.',
+      'This project was aimed to create a short commercial video for social media. The product we promoted is an IPhone. Overall we wanted the video to be eyecatching and attention grabbing.',
     role: 'Commercial Video',
     year: 2022,
     built: ['Premier Pro'],
