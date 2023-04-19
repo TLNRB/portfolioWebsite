@@ -9,6 +9,16 @@ const container = ref(null)
 const content = ref(null)
 const title = ref(null)
 
+//Skill hover text appear
+const showIndex = ref(-1)
+
+const showText = (index) => {
+  showIndex.value = index
+}
+const hideText = () => {
+  showIndex.value = -1
+}
+
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
@@ -77,7 +87,7 @@ const skills = ref(allSkills)
           to the table. I have experience with a variety of front-end frameworks and tools, and I am
           always eager to expand my knowledge and learn from others.
         </div>
-        <div class="skill-container" ref="skillContainer">
+        <div class="skill-container">
           <div class="slider-container">
             <div class="slider">
               <div
@@ -87,8 +97,19 @@ const skills = ref(allSkills)
                 :style="{
                   marginTop: isMobileSkill ? `${1.5 * skill.marginTop}px` : `${skill.marginTop}px`
                 }"
+                @mouseover="showText(skill.id)"
+                @mouseleave="hideText()"
               >
-                <img :src="skill.img" :alt="skill.desc" />
+                <img
+                  :src="skill.img"
+                  :alt="skill.desc"
+                  :class="{ 'skill-hovered': showIndex == skill.id }"
+                />
+                <transition name="fade">
+                  <div v-show="showIndex == skill.id" class="tooltip">
+                    {{ skill.title }}
+                  </div>
+                </transition>
               </div>
             </div>
           </div>
@@ -215,6 +236,11 @@ const skills = ref(allSkills)
   -moz-box-shadow: 0px 0px 10px 0px var(--bgBoxShadowBlack);
 }
 
+.skills .container .content .skill-container .slider-container .slider .skill .skill-hovered {
+  filter: blur(3px);
+  transition: filter 0.3s ease-in-out;
+}
+
 .skills .container .content .skill-container .slider-container .slider .skill:hover {
   border: 2px solid var(--primaryColorToned);
 }
@@ -223,6 +249,29 @@ const skills = ref(allSkills)
   width: 65px;
   height: 65px;
   opacity: 0.8;
+}
+
+.skills .container .content .skill-container .slider-container .slider .skill .tooltip {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: var(--primaryColor);
+  color: var(--textWhite);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .skills .container .content .skill-container .headline {
@@ -287,6 +336,13 @@ const skills = ref(allSkills)
   .skills .container .content .skill-container .slider-container .slider .skill img {
     width: 40px;
     height: 40px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill .tooltip {
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
   }
 }
 
@@ -377,6 +433,13 @@ const skills = ref(allSkills)
   .skills .container .content .skill-container .slider-container .slider .skill img {
     width: 55px;
     height: 55px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill .tooltip {
+    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -488,6 +551,13 @@ const skills = ref(allSkills)
   .skills .container .content .skill-container .slider-container .slider .skill img {
     width: 40px;
     height: 40px;
+  }
+
+  .skills .container .content .skill-container .slider-container .slider .skill .tooltip {
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
   }
 
   .skills .container .content .text {

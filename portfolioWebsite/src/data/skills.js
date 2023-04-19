@@ -9,14 +9,14 @@ import javascriptImg from '../assets/images/skills/javascript.svg'
 const skills = [
   {
     id: 1,
-    title: 'Vue',
+    title: 'Vue.js',
     desc: 'Vue Icon',
     img: vueImg,
     marginTop: 35
   },
   {
     id: 2,
-    title: 'JavaScript',
+    title: 'JS',
     desc: 'JS Icon',
     img: javascriptImg,
     marginTop: 75
@@ -51,7 +51,7 @@ const skills = [
   },
   {
     id: 7,
-    title: 'JavaScript',
+    title: 'JS',
     desc: 'JS Icon',
     img: javascriptImg,
     marginTop: 75
@@ -72,7 +72,7 @@ const skills = [
   },
   {
     id: 10,
-    title: 'Vue',
+    title: 'Vue.js',
     desc: 'Vue Icon',
     img: vueImg,
     marginTop: 100
