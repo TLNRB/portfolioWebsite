@@ -57,7 +57,7 @@ const projects = [
     built: ['Premier Pro'],
     img: bubbleImg,
     gitHub: 'https://github.com/TLNRB',
-    liveServer: 'https://www.google.com/'
+    liveServer: 'https://youtu.be/5a6jqATvqKQ'
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const projects = [
     built: ['Premier Pro'],
     img: profileImg,
     gitHub: 'https://github.com/TLNRB',
-    liveServer: 'https://www.google.com/'
+    liveServer: 'https://youtube.com/shorts/9QLWzJUZ8BE?feature=share'
   }
 ]
 

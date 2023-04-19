@@ -102,7 +102,7 @@ onMounted(() => {
           <span>Download CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'download']" />
         </a>
-        <a href="" target="_blank">
+        <a href="https://youtu.be/4hrcRc6d_8s" target="_blank">
           <span>Watch CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'play']" />
         </a>
