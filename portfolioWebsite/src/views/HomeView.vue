@@ -29,7 +29,7 @@ const handleSelectSection = (id) => {
 //Active status boolean value toggle
 function sectionStatus(trueId) {
   for (let i = 0; i < sections.value.length; i++) {
-    if (i === trueId) {
+    if (i == trueId) {
       sections.value[i].active = true
     } else {
       sections.value[i].active = false
@@ -41,22 +41,16 @@ function sectionStatus(trueId) {
 const setSectionStatus = () => {
   const scrollPosition = window.scrollY
 
-  const section0Height = document.querySelector('#home').offsetHeight
+  const section0Height = document.querySelector(`#${sections.value[0].id}`).offsetHeight
   const section1Height = document.querySelector(`#${sections.value[1].id}`).offsetHeight
   const section2Height = document.querySelector(`#${sections.value[2].id}`).offsetHeight
   const section3Height = document.querySelector(`#${sections.value[3].id}`).offsetHeight
   const section4Height = document.querySelector(`#${sections.value[4].id}`).offsetHeight
 
   if (
-    Math.ceil(window.innerHeight + window.pageYOffset) ==
-      (section0Height + section1Height + section2Height + section3Height + section4Height ||
-        section0Height + section1Height + section2Height + section3Height + section4Height + 1 ||
-        section0Height + section1Height + section2Height + section3Height + section4Height - 1) ||
-    Math.floor(window.innerHeight + window.pageYOffset) ==
-      (section0Height + section1Height + section2Height + section3Height + section4Height ||
-        section0Height + section1Height + section2Height + section3Height + section4Height + 1 ||
-        section0Height + section1Height + section2Height + section3Height + section4Height - 1) ||
     window.innerHeight + window.pageYOffset ==
+      section0Height + section1Height + section2Height + section3Height + section4Height ||
+    window.innerHeight + window.pageYOffset + 5 >=
       section0Height + section1Height + section2Height + section3Height + section4Height
   ) {
     sectionStatus(4)
