@@ -21,6 +21,7 @@ body {
   background-color: var(--bgBlack);
   color: var(--textWhite);
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

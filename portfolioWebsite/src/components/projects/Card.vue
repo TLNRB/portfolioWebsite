@@ -42,6 +42,7 @@ const { project } = defineProps(['project'])
 .projects .container .inner-container .card-container .card img {
   width: 100%;
   height: 250px;
+  filter: brightness(80%);
 }
 
 .projects .container .inner-container .card-container .card .lower-container {

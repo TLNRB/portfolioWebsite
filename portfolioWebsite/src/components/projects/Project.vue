@@ -176,6 +176,7 @@ function goBack() {
   max-width: 100%;
   height: auto;
   border-radius: 40px;
+  filter: brightness(80%);
 }
 
 .project .button-container {

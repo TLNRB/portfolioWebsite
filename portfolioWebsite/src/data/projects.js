@@ -1,7 +1,9 @@
 //Image import on absolute path for build folder
-import refImg from '../assets/images/ref.jpg'
-import bubbleImg from '../assets/images/bubbleBG.png'
-import profileImg from '../assets/images/best.jpg'
+import pastaPerfectImg from '../assets/images/pastaPerfect.jpg'
+import kxYorkvilleImg from '../assets/images/kxYorkville.jpg'
+import longhornLandingPageImg from '../assets/images/longhornLandingPage.jpg'
+import aalborgImg from '../assets/images/aalborg.jpg'
+import appleAddImg from '../assets/images/appleAdd.jpg'
 
 const projects = [
   {
@@ -9,12 +11,12 @@ const projects = [
     title: 'Pasta Perfect',
     category: 'Website',
     description:
-      'In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.',
-    role: 'Pasta Website',
+      "The project's aim was to create a website that would provide users with pasta recepies which are stored in a database. Recepies are displayed dynamically on the site. It includes a section where you can filter the recepies based on different inputs. The ability to switch between light and dark mode is also included.",
+    role: 'Recepie Website',
     year: 2023,
     framework: 'vue',
     built: ['JavaScript', 'TailWind'],
-    img: refImg,
+    img: pastaPerfectImg,
     gitHub: 'https://github.com/TLNRB/pastaPerfect',
     liveServer: 'https://project-pastaperfect.firebaseapp.com/'
   },
@@ -23,12 +25,12 @@ const projects = [
     title: 'KX Yorkville',
     category: 'Website',
     description:
-      'In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.',
+      "KX Yorkville is an online platform for a fitness center, providing visitors an overview of the gym's facilities, class schedules, pricing, timeline and membership options. The website's design was developed to ensure an engaging user experience.",
     role: 'Gym Website',
     year: 2022,
     framework: 'other',
     built: ['JavaScript'],
-    img: refImg,
+    img: kxYorkvilleImg,
     gitHub: 'https://github.com/TLNRB/web-dev_1st-semester_project',
     liveServer: 'https://project-kxyorkville.firebaseapp.com/'
   },
@@ -37,12 +39,12 @@ const projects = [
     title: 'Longhorn',
     category: 'Website',
     description:
-      'In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.',
+      'Our main goal was to create a website to promote and provide information about a BBQ event. The website included details about the event, such as the date, time, location, and an image gallery which displays shots from previous years. It was designed to attract visitors and generate interest in the event.',
     role: 'BBQ Event Website',
     year: 2022,
     framework: 'other',
     built: ['SCSS', 'JavaScript'],
-    img: refImg,
+    img: longhornLandingPageImg,
     gitHub: 'https://github.com/HvadisVal/Semester-project',
     liveServer: 'https://longhorn-bbq.firebaseapp.com/'
   },
@@ -55,7 +57,7 @@ const projects = [
     role: 'Journey Video',
     year: 2023,
     built: ['Premier Pro'],
-    img: bubbleImg,
+    img: aalborgImg,
     gitHub: 'https://github.com/TLNRB',
     liveServer: 'https://youtu.be/5a6jqATvqKQ'
   },
@@ -68,7 +70,7 @@ const projects = [
     role: 'Commercial Video',
     year: 2022,
     built: ['Premier Pro'],
-    img: profileImg,
+    img: appleAddImg,
     gitHub: 'https://github.com/TLNRB',
     liveServer: 'https://youtube.com/shorts/9QLWzJUZ8BE?feature=share'
   }
