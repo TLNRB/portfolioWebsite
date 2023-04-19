@@ -98,11 +98,11 @@ onMounted(() => {
         functional.
       </p>
       <div class="btn-container" ref="button">
-        <a href="" download="">
+        <a href="src/assets/cv/TolnaiNorbert-cv-eng.pdf" download>
           <span>Download CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'download']" />
         </a>
-        <a href="">
+        <a href="" target="_blank">
           <span>Watch CV</span>
           <font-awesome-icon class="icon" :icon="['fas', 'play']" />
         </a>
