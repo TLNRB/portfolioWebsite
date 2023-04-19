@@ -49,15 +49,14 @@ onMounted(() => {
     <div class="socials" ref="socials">
       <p>Socials</p>
       <div class="content-container">
-        <a href="">GitHub</a>
-        <a href="">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/norbert-tolnai/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/TLNRB" target="_blank">GitHub</a>
       </div>
     </div>
     <div class="contact" ref="contact">
       <p>Contact</p>
       <div class="content-container">
-        <p>tolnainorbi16@gmail.com</p>
-        <p>+45 50 15 69 20</p>
+        <a href="mailto:tolnainorbi16@gmail.com">tolnainorbi16@gmail.com</a>
       </div>
     </div>
   </footer>
@@ -115,10 +114,9 @@ footer div div a:hover::before {
   width: 100%;
 }
 
-footer .contact div {
-  flex-direction: column;
-  align-items: start;
-  gap: 0.375rem;
+footer .contact .icon {
+  transform: translateY(0);
+  color: var(--textWhite);
 }
 
 @media screen and (max-width: 1200px) {

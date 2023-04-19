@@ -56,8 +56,12 @@ const { homeImg } = defineProps(['homeImg'])
         <p>18:42 PM</p>
       </div>
       <div class="icons" ref="icons">
-        <a href=""><font-awesome-icon :icon="['fab', 'linkedin-in']" /></a>
-        <a href=""><font-awesome-icon :icon="['fab', 'github']" /></a>
+        <a href="https://www.linkedin.com/in/norbert-tolnai/" target="_blank"
+          ><font-awesome-icon :icon="['fab', 'linkedin-in']"
+        /></a>
+        <a href="https://github.com/TLNRB" target="_blank"
+          ><font-awesome-icon :icon="['fab', 'github']"
+        /></a>
       </div>
     </div>
 
