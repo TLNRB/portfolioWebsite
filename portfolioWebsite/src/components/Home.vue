@@ -3,12 +3,36 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
+//---------- API ----------
+//Weather API
+const state = ref({
+  temperature: null,
+  city: 'Esbjerg',
+  apiKey: '2846fd04ba7980ef4a4e005c7ca58409'
+})
+
+const getWeatherByCityName = async (city) => {
+  const response = await fetch(
+    'https://api.openweathermap.org/data/2.5/weather?units=metric&q=' +
+      city +
+      '&appid=' +
+      state.value.apiKey +
+      ''
+  )
+  const data = await response.json()
+  state.value.temperature = data.main.temp
+  state.value.temperature = Math.round(state.value.temperature, 0)
+}
+
 //Home content animation
 const title = ref(null)
 const icons = ref(null)
 const apiData = ref(null)
 
 onMounted(() => {
+  //Weather API
+  getWeatherByCityName(state.value.city)
+
   gsap.registerPlugin(ScrollTrigger)
   const tl = gsap.timeline()
 
@@ -52,7 +76,7 @@ const { homeImg } = defineProps(['homeImg'])
       <!-- API Data and Social Links -->
       <div class="api-data" ref="apiData">
         <p>DE</p>
-        <p>9°C</p>
+        <p>{{ state.temperature }} °C</p>
         <p>18:42 PM</p>
       </div>
       <div class="icons" ref="icons">
