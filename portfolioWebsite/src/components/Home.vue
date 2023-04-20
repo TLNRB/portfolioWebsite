@@ -1,27 +1,63 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watchEffect } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 //---------- API ----------
-//Weather API
-const state = ref({
-  temperature: null,
-  city: 'Esbjerg',
-  apiKey: '2846fd04ba7980ef4a4e005c7ca58409'
+const apiDatas = ref({
+  countryCode: ref(null),
+  countryTimeZone: ref(null),
+  locationToken: '947583cd9857f3',
+  weatherTemperature: ref(null),
+  city: ref(null),
+  weatherApiKey: '2846fd04ba7980ef4a4e005c7ca58409'
 })
 
-const getWeatherByCityName = async (city) => {
-  const response = await fetch(
-    'https://api.openweathermap.org/data/2.5/weather?units=metric&q=' +
-      city +
-      '&appid=' +
-      state.value.apiKey +
-      ''
-  )
-  const data = await response.json()
-  state.value.temperature = data.main.temp
-  state.value.temperature = Math.round(state.value.temperature, 0)
+//Location and Time API
+const getLocation = async () => {
+  try {
+    const response = await fetch(`https://ipinfo.io/json?token=${apiDatas.value.locationToken}`)
+    const data = await response.json()
+    apiDatas.value.countryCode = data.country
+    apiDatas.value.countryTimeZone = data.timezone
+    apiDatas.value.city = data.city
+    getWeatherByCityName(apiDatas.value.city)
+  } catch (error) {
+    console.error('Fetch error on location' + error)
+  }
+}
+
+//Weather API
+const getWeatherByCityName = async (cityName) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=${apiDatas.value.weatherApiKey}`
+    )
+    const data = await response.json()
+    apiDatas.value.weatherTemperature = `${Math.round(data.main.temp, 0)} °C`
+  } catch (error) {
+    console.error('Fetch error on weather' + error)
+  }
+}
+
+//Timeformatter
+const formattedTime = ref(null)
+
+function formatTime(timezone) {
+  const date = new Date()
+  date.toLocaleString('en-US', { timeZone: timezone })
+  const hours = date.getHours()
+  const minutes = date.getMinutes().toString().padStart(2, '0')
+  /* const seconds = date.getSeconds().toString().padStart(2, '0') */
+  const ampm = date.getHours() >= 12 ? 'PM' : 'AM'
+
+  formattedTime.value = `${hours}:${minutes} ${ampm}`
+}
+
+function startInterval() {
+  setInterval(() => {
+    formatTime(apiDatas.value.countryTimeZone)
+  }, 1000) // Refresh every second
 }
 
 //Home content animation
@@ -30,8 +66,9 @@ const icons = ref(null)
 const apiData = ref(null)
 
 onMounted(() => {
-  //Weather API
-  getWeatherByCityName(state.value.city)
+  //API data
+  getLocation()
+  startInterval()
 
   gsap.registerPlugin(ScrollTrigger)
   const tl = gsap.timeline()
@@ -75,9 +112,9 @@ const { homeImg } = defineProps(['homeImg'])
       </div>
       <!-- API Data and Social Links -->
       <div class="api-data" ref="apiData">
-        <p>DE</p>
-        <p>{{ state.temperature }} °C</p>
-        <p>18:42 PM</p>
+        <p>{{ apiDatas.countryCode }}</p>
+        <p>{{ apiDatas.weatherTemperature }}</p>
+        <p>{{ formattedTime }}</p>
       </div>
       <div class="icons" ref="icons">
         <a href="https://www.linkedin.com/in/norbert-tolnai/" target="_blank"
