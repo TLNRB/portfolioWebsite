@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watchEffect } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -13,7 +13,7 @@ const apiDatas = ref({
   weatherApiKey: '2846fd04ba7980ef4a4e005c7ca58409'
 })
 
-//Location and Time API
+//Location and Timezone API
 const getLocation = async () => {
   try {
     const response = await fetch(`https://ipinfo.io/json?token=${apiDatas.value.locationToken}`)
@@ -48,7 +48,6 @@ function formatTime(timezone) {
   date.toLocaleString('en-US', { timeZone: timezone })
   const hours = date.getHours()
   const minutes = date.getMinutes().toString().padStart(2, '0')
-  /* const seconds = date.getSeconds().toString().padStart(2, '0') */
   const ampm = date.getHours() >= 12 ? 'PM' : 'AM'
 
   formattedTime.value = `${hours}:${minutes} ${ampm}`

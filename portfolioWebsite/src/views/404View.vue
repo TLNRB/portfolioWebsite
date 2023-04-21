@@ -1,19 +1,62 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+//404 content animation
+const title = ref(null)
+const text = ref(null)
+const button = ref(null)
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  const tl = gsap.timeline()
+
+  tl.from(title.value, {
+    y: -50,
+    opacity: 0,
+    duration: 0.75
+  })
+    .from(
+      text.value,
+      {
+        y: -25,
+        opacity: 0,
+        duration: 0.75
+      },
+      0.5
+    )
+    .from(
+      button.value,
+      {
+        y: -25,
+        opacity: 0,
+        duration: 0.75
+      },
+      0.75
+    )
+
+  onUnmounted(() => {
+    tl.kill()
+  })
+})
 </script>
 
 <template>
   <section class="container">
     <div class="content">
       <!-- Title -->
-      <div class="title">
+      <div class="title" ref="title">
         <h1>4</h1>
         <h1 id="brackets">{}</h1>
         <h1>4</h1>
       </div>
 
-      <p>Sorry, page not found!</p>
-      <RouterLink to="/" class="button">Back to Home</RouterLink>
+      <p ref="text">Sorry, page not found!</p>
+      <div ref="button">
+        <RouterLink to="/" class="button">Back to Home</RouterLink>
+      </div>
     </div>
     <!-- Gradient Background -->
     <div class="bg bg-1"></div>
