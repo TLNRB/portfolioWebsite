@@ -83,7 +83,7 @@ onMounted(() => {
       opacity: 0,
       duration: window.innerWidth > 768 ? 0.75 : 0.5
     },
-    0.5
+    0.4
   )
 
   onUnmounted(() => {
