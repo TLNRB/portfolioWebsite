@@ -25,7 +25,7 @@ onMounted(() => {
         opacity: 0,
         duration: 0.75
       },
-      0.5
+      0.3
     )
     .from(
       button.value,
@@ -34,7 +34,7 @@ onMounted(() => {
         opacity: 0,
         duration: 0.75
       },
-      0.75
+      0.6
     )
 
   onUnmounted(() => {
