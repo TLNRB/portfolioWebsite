@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
 //---------- API ----------
 const apiDatas = ref({
@@ -63,14 +62,30 @@ function startInterval() {
 const title = ref(null)
 const icons = ref(null)
 const apiData = ref(null)
+const isLoaded = ref(false)
 
 onMounted(() => {
   //API data
   getLocation()
   startInterval()
 
-  gsap.registerPlugin(ScrollTrigger)
-  const tl = gsap.timeline()
+  // Check if the component has been enabled before
+  const isLoadedBefore = ref(localStorage.getItem('isLoaded'))
+
+  if (isLoadedBefore.value === 'true') {
+    isLoaded.value = true
+  } else {
+    localStorage.setItem('isLoaded', 'true')
+  }
+
+  // Listen to the beforeunload event to re-enable the component on manual refresh
+  window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('isLoaded')
+  })
+
+  const tl = gsap.timeline({
+    delay: isLoaded.value ? 0 : 2.5
+  })
 
   tl.from(title.value, {
     y: window.innerWidth > 768 ? 75 : -50,

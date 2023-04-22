@@ -1,7 +1,21 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+
+const preLoader = ref(null)
+
+onMounted(() => {
+  gsap.to(preLoader.value, {
+    y: '-100%',
+    duration: 0.5,
+    ease: 'Power1.easeIn',
+    delay: 2.25
+  })
+})
+</script>
 
 <template>
-  <div class="preloader">
+  <div class="preloader" ref="preLoader">
     <div class="container">
       <div class="text">
         <p>Loading</p>

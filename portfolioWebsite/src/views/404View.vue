@@ -11,7 +11,9 @@ const button = ref(null)
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  const tl = gsap.timeline()
+  const tl = gsap.timeline({
+    delay: 2.5
+  })
 
   tl.from(title.value, {
     y: -50,

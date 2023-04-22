@@ -10,7 +10,6 @@ import About from '../components/About.vue'
 import Projects from '../components/Projects.vue'
 import Skills from '../components/Skills.vue'
 import FooterSection from '../components/FooterSection.vue'
-import Preloader from '../components/Preloader.vue'
 
 // ---------- Nav links ----------
 const sections = ref([
@@ -81,30 +80,9 @@ const handleScroll = () => {
   }
 }
 
-//Preloader
-const loading = ref(true)
-
 //Scroll handle added when the app mounts
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-
-  // Check if the component has been enabled before
-  const isEnabledBefore = localStorage.getItem('loading')
-
-  if (isEnabledBefore === 'true') {
-    // Simulate a delay to show the preloader
-    loading.value = false
-  } else {
-    localStorage.setItem('loading', 'true')
-    setTimeout(() => {
-      loading.value = false
-    }, 2000)
-  }
-
-  // Listen to the beforeunload event to re-enable the component on manual refresh
-  window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('loading')
-  })
 })
 //Scroll handle removed when the app unmounts
 onUnmounted(() => {
@@ -113,13 +91,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Preloader v-if="loading" />
-  <div v-else class="appContainer">
+  <div class="appContainer">
     <Navbar
       :sections="sections"
       @select-section="handleSelectSection"
       :class="{ 'scroll-up': isScrolling }"
-      ref="navBar"
     />
     <Home id="home" :homeImg="profilePic" />
     <About id="about" />
