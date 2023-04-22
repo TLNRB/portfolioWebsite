@@ -76,15 +76,26 @@ onMounted(() => {
     y: window.innerWidth > 768 ? 75 : -50,
     opacity: 0,
     duration: 0.75
-  }).from(
-    [icons.value, apiData.value],
-    {
-      y: window.innerWidth > 768 ? 50 : -25,
-      opacity: 0,
-      duration: window.innerWidth > 768 ? 0.75 : 0.5
-    },
-    0.4
-  )
+  })
+    .from(
+      icons.value,
+
+      {
+        x: window.innerWidth > 768 ? -50 : -25,
+        opacity: 0,
+        duration: window.innerWidth > 768 ? 0.75 : 0.5
+      },
+      0.4
+    )
+    .from(
+      apiData.value,
+      {
+        x: window.innerWidth > 768 ? 50 : -25,
+        opacity: 0,
+        duration: window.innerWidth > 768 ? 0.75 : 0.5
+      },
+      0.4
+    )
 
   onUnmounted(() => {
     tl.kill()
