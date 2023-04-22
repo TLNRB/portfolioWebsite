@@ -45,19 +45,6 @@ onMounted(() => {
     x: window.innerWidth > 1068 ? '-150%' : '-125%'
   })
 
-  const buttonTimeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: container.value,
-      start: '5% center',
-      end: window.innerWidth > 1068 ? '15% center' : '17% center',
-      scrub: 1
-    }
-  })
-
-  buttonTimeline.from(button.value, {
-    x: window.innerWidth > 1068 ? '300%' : '-150%'
-  })
-
   const cardTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: container.value,
@@ -75,43 +62,11 @@ onMounted(() => {
   onUnmounted(() => {
     titleTimeline.kill()
     textTimeline.kill()
-    buttonTimeline.kill()
     cardTimeline.kill()
   })
 })
 
 const projects = ref(allProjects)
-
-/* Setting the correct button to active */
-const activeButton = ref('all')
-
-const displayAll = () => {
-  activeButton.value = 'all'
-}
-const displayWebsite = () => {
-  activeButton.value = 'website'
-}
-const displayVideo = () => {
-  activeButton.value = 'video'
-}
-
-/* Filtering the projects */
-let filteredProjects = computed(() => {
-  switch (activeButton.value) {
-    case 'all':
-      return projects.value
-      break
-    case 'website':
-      return projects.value.filter((project) => project.category.toLowerCase() === 'website')
-      break
-    case 'video':
-      return projects.value.filter((project) => project.category.toLowerCase() === 'video')
-      break
-
-    default:
-      break
-  }
-})
 </script>
 
 <template>
@@ -130,21 +85,10 @@ let filteredProjects = computed(() => {
             able to make a better work either design or functionality wise. Here you can see my
             biggest and most recent projects.
           </p>
-          <div class="filter-btn-container" ref="button">
-            <button @click="displayAll" :class="{ 'btn-active': activeButton === 'all' }">
-              All
-            </button>
-            <button @click="displayWebsite" :class="{ 'btn-active': activeButton === 'website' }">
-              Website
-            </button>
-            <button @click="displayVideo" :class="{ 'btn-active': activeButton === 'video' }">
-              Video
-            </button>
-          </div>
         </div>
         <div class="card-container" ref="cardContainer">
           <!-- Cards Go Here -->
-          <Card v-for="project in filteredProjects" :key="project.id" :project="project" />
+          <Card v-for="project in projects" :key="project.id" :project="project" />
         </div>
       </div>
     </div>
@@ -199,60 +143,6 @@ let filteredProjects = computed(() => {
   font-size: 1.25rem;
   color: var(--textNormalGray);
   font-weight: 500;
-}
-
-.projects .container .inner-container .text-container .filter-btn-container {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.projects .container .inner-container .text-container .filter-btn-container button {
-  font-family: 'Red Hat Display', sans-serif;
-  padding: 0.813rem 1.5rem 0.75rem 1.5rem;
-  background-color: var(--primaryColor);
-  border: 1px solid var(--textLightGray);
-  color: var(--textLightGray);
-  border-radius: 60em;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 0.3s linear;
-}
-.projects .container .inner-container .text-container .filter-btn-container button:hover {
-  border: 1px solid var(--primaryColor);
-}
-.projects .container .inner-container .text-container .filter-btn-container button::after {
-  content: '';
-  position: absolute;
-  bottom: -35px;
-  left: -25px;
-  height: 260px;
-  width: 230px;
-  border-radius: 38%;
-  box-sizing: border-box;
-  background-color: var(--bgBlack);
-  transform: translateY(0) rotate(0deg);
-  transition: all 0.3s ease-in-out;
-  transition: transform 1.25s linear;
-  z-index: -1;
-}
-.projects .container .inner-container .text-container .filter-btn-container button:hover::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.projects .container .inner-container .text-container .filter-btn-container .btn-active {
-  transition: all 0.3s linear;
-  background-color: var(--bgBlack);
-  border: 1px solid var(--primaryColor);
-}
-
-.projects .container .inner-container .text-container .filter-btn-container .btn-active::after {
-  background-color: var(--primaryColor);
 }
 
 /* ----- Card Container -----*/
@@ -319,11 +209,6 @@ let filteredProjects = computed(() => {
   .projects .container .inner-container .text-container p {
     width: 100%;
   }
-  .projects .container .inner-container .text-container .filter-btn-container button {
-    font-family: 'Red Hat Display', sans-serif;
-    padding: 0.688rem 1.25rem 0.625rem 1.25rem;
-    font-size: 0.875rem;
-  }
 }
 
 /* ----- Title Resize ----- */
@@ -362,11 +247,6 @@ let filteredProjects = computed(() => {
   }
   .projects .container .inner-container {
     margin: 2rem 0;
-  }
-
-  .projects .container .inner-container .text-container .filter-btn-container {
-    gap: 1rem;
-    flex-wrap: wrap;
   }
 
   .projects .container .title {
