@@ -22,7 +22,12 @@ const router = createRouter({
         const exists = localProject.some((project) => project.id === id)
 
         if (!exists) {
-          return { name: 'notfound' }
+          return {
+            name: 'notfound',
+            params: { pathMatch: to.path.substring(1).split('/') },
+            query: to.query,
+            hash: to.hash
+          }
         }
       }
     },
