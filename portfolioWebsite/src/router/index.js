@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import NotFoundView from '../views/404View.vue'
+import projects from '../data/projects'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,7 +15,16 @@ const router = createRouter({
     {
       path: '/project-:id',
       name: 'project',
-      component: ProjectView
+      component: ProjectView,
+      beforeEnter(to) {
+        const id = parseInt(to.params.id)
+        const localProject = projects
+        const exists = localProject.some((project) => project.id === id)
+
+        if (!exists) {
+          return { name: 'notfound' }
+        }
+      }
     },
     {
       path: '/:catchall(.*)*',
