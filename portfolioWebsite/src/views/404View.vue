@@ -9,10 +9,12 @@ const title = ref(null)
 const text = ref(null)
 const button = ref(null)
 
+const { loading } = defineProps(['loading'])
+
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   const tl = gsap.timeline({
-    delay: 2.5
+    delay: loading ? 2.3 : 0
   })
 
   tl.from(title.value, {

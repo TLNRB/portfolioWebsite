@@ -88,6 +88,9 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+//Define loading value as a prop
+const { loading } = defineProps(['loading'])
 </script>
 
 <template>
@@ -97,7 +100,7 @@ onUnmounted(() => {
       @select-section="handleSelectSection"
       :class="{ 'scroll-up': isScrolling }"
     />
-    <Home id="home" :homeImg="profilePic" />
+    <Home id="home" :homeImg="profilePic" :loading="loading" />
     <About id="about" />
     <Projects id="projects" />
     <Skills id="skills" :skillsImg="bubbleWeb" :skillsImgMobile="bubbleMobile" />

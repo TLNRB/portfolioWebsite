@@ -12,7 +12,7 @@ onMounted(() => {
   setTimeout(() => {
     loading.value = false
     document.body.style.overflow = 'visible'
-  }, 2750)
+  }, 3250)
 })
 
 console.log(
@@ -22,7 +22,7 @@ console.log(
 
 <template>
   <Preloader class="top" :class="{ display: !loading }" />
-  <RouterView />
+  <RouterView :loading="loading" />
 </template>
 
 <style scoped>

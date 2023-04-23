@@ -62,29 +62,14 @@ function startInterval() {
 const title = ref(null)
 const icons = ref(null)
 const apiData = ref(null)
-const isLoaded = ref(false)
 
 onMounted(() => {
   //API data
   getLocation()
   startInterval()
 
-  // Check if the component has been enabled before
-  const isLoadedBefore = ref(localStorage.getItem('isLoaded'))
-
-  if (isLoadedBefore.value === 'true') {
-    isLoaded.value = true
-  } else {
-    localStorage.setItem('isLoaded', 'true')
-  }
-
-  // Listen to the beforeunload event to re-enable the component on manual refresh
-  window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('isLoaded')
-  })
-
   const tl = gsap.timeline({
-    delay: isLoaded.value ? 0 : 2.5
+    delay: loading ? 2.3 : 0
   })
 
   tl.from(title.value, {
@@ -117,7 +102,7 @@ onMounted(() => {
   })
 })
 
-const { homeImg } = defineProps(['homeImg'])
+const { homeImg, loading } = defineProps(['homeImg', 'loading'])
 </script>
 
 <template>
