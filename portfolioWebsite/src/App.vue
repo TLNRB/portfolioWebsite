@@ -12,7 +12,7 @@ onMounted(() => {
   setTimeout(() => {
     loading.value = false
     document.body.style.overflow = 'visible'
-  }, 3250)
+  }, 2500)
 })
 
 console.log(

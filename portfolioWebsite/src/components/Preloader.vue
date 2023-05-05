@@ -9,7 +9,7 @@ onMounted(() => {
     y: '-100%',
     duration: 0.5,
     ease: 'Power1.easeIn',
-    delay: 2
+    delay: 1.25
   })
 })
 </script>

@@ -14,7 +14,7 @@ const { loading } = defineProps(['loading'])
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   const tl = gsap.timeline({
-    delay: loading ? 2.3 : 0
+    delay: loading ? 1.25 : 0
   })
 
   tl.from(title.value, {
