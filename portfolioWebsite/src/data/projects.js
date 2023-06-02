@@ -2,8 +2,7 @@
 import pastaPerfectImg from '../assets/images/pastaPerfect.jpg'
 import kxYorkvilleImg from '../assets/images/kxYorkville.jpg'
 import longhornLandingPageImg from '../assets/images/longhornLandingPage.jpg'
-import aalborgImg from '../assets/images/aalborg.jpg'
-import appleAddImg from '../assets/images/appleAdd.jpg'
+import kantenImg from '../assets//images/kanten.jpg'
 
 const projects = [
   {
@@ -15,7 +14,7 @@ const projects = [
     role: 'Recepie Website',
     year: 2023,
     framework: 'vue',
-    built: ['JavaScript', 'TailWind'],
+    built: ['JavaScript', 'TailWind CSS'],
     img: pastaPerfectImg,
     gitHub: 'https://github.com/TLNRB/pastaPerfect',
     liveServer: 'https://project-pastaperfect.firebaseapp.com/'
@@ -43,36 +42,24 @@ const projects = [
     role: 'BBQ Event Website',
     year: 2022,
     framework: 'other',
-    built: ['SCSS', 'JavaScript'],
+    built: ['JavaScript', 'SCSS'],
     img: longhornLandingPageImg,
     gitHub: 'https://github.com/HvadisVal/Semester-project',
     liveServer: 'https://longhorn-bbq.firebaseapp.com/'
   },
   {
     id: 4,
-    title: 'Aalborg Journey',
-    category: 'Video',
+    title: 'Kanten',
+    category: 'Website',
     description:
-      'This video was made as a mini project of my own. I captured my first time seeing Aalborg while visiting its most remarkable parts.',
-    role: 'Journey Video',
+      'This website was created for an event organizer to promote their events, along with all the valuable information about them. They had a sepcial requirement to provide a backend interface where they can maintain the data of the events and galleries. It contains a small database with an authentication system along with a contact form as well as a newsletter form used by MailChimp.',
+    role: 'Event Organizer Website',
     year: 2023,
-    built: ['Premier Pro'],
-    img: aalborgImg,
-    gitHub: 'https://github.com/TLNRB',
-    liveServer: 'https://youtu.be/5a6jqATvqKQ'
-  },
-  {
-    id: 5,
-    title: 'Apple Add',
-    category: 'Video',
-    description:
-      'This project was aimed to create a short commercial video for social media. The product we promoted is an IPhone. Overall we wanted the video to be eyecatching and attention grabbing.',
-    role: 'Commercial Video',
-    year: 2022,
-    built: ['Premier Pro'],
-    img: appleAddImg,
-    gitHub: 'https://github.com/TLNRB',
-    liveServer: 'https://youtube.com/shorts/9QLWzJUZ8BE?feature=share'
+    framework: 'vue',
+    built: ['Vue.js', 'TailWind CSS', 'GSAP', 'Firebase'],
+    img: kantenImg,
+    gitHub: 'https://github.com/TLNRB/kanten',
+    liveServer: 'https://kanten-c95d9.web.app/'
   }
 ]
 
